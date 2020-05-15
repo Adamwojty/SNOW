@@ -1,0 +1,60 @@
+.wrapper {
+  //   background-color: rgb(38, 160, 200);
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: 40% 30% 30%;
+  grid-template-rows: 600px 700px;
+  grid-template-areas:
+    'slogan photo1 photo2'
+    'photo3 photo1 photo2';
+  .slogan_wrapper {
+    display: flex;
+    flex-direction: column;
+    grid-area: slogan;
+    justify-content: center;
+    header {
+      margin-top: 0;
+      font-size: 3rem;
+      font-weight: 700;
+      display: inline-block;
+      width: 70%;
+    }
+    p {
+      margin-top: 50px;
+      width: 70%;
+    }
+  }
+  .img1 {
+    margin-right: 30px;
+    overflow: hidden;
+    grid-area: photo1;
+    position: relative;
+    img {
+      position: absolute;
+      top: 200px;
+      left: -200px;
+    }
+  }
+  .img2 {
+    margin: 0 10px;
+    overflow: hidden;
+    grid-area: photo2;
+    position: relative;
+    img {
+      position: absolute;
+      left: -200px;
+    }
+  }
+  .img3 {
+    overflow: hidden;
+    grid-area: photo3;
+    position: relative;
+    img {
+      position: absolute;
+      top: 100px;
+      left: -200px;
+    }
+  }
+}

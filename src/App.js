@@ -1,37 +1,33 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addItem, removeItem } from './actions';
-
-import styles from './App.module.css';
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import HomeView from './components/Views/HomeView/HomeView';
+import ShopView from './components/Views/ShopView';
+import AboutView from './components/Views/AboutView';
+import NewsView from './components/Views/NewsView';
+import Header from './components/Header/Header';
+import styles from './App.module.scss';
 
 const App = () => {
-  const cart = useSelector((state) => state.cart);
-  console.log(cart);
-  const dispatch = useDispatch();
-
-  useEffect(() => {});
   return (
-    <div className="App">
-      <h1>Hello</h1>
-      <div>
-        <button onClick={() => dispatch(addItem('drzewo', 'lorem ipsum dolo res'))}>drzewo</button>
-      </div>
-      <div>
-        <button onClick={() => dispatch(addItem('kwiat', 'lorem ipsum dolo res'))}>kwiat</button>
-      </div>
-      <div>
-        <div className={styles.list__div}>
-          <ul>
-            {cart.map((item) => (
-              <li>
-                {item.title}
-                <button onClick={() => dispatch(removeItem(item.id))}>X</button>
-              </li>
-            ))}
-          </ul>
+    <>
+      <BrowserRouter>
+        <div>
+          <div className={styles.container}>
+            <Header />
+            <div className={styles.wrapper}>
+              <div className={styles.home}>
+                <Switch>
+                  <Route exact path="/" component={HomeView} />
+                  <Route exact path="/shop" component={ShopView} />
+                  <Route exact path="/about" component={AboutView} />
+                  <Route exact path="/news" component={NewsView} />
+                </Switch>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      </BrowserRouter>
+    </>
   );
 };
 

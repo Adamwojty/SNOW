@@ -1,0 +1,110 @@
+.hamburger_menu {
+  display: none;
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  width: 100%;
+  .menu_secondary_background_color {
+    background-color: black;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .menu_layer {
+    position: relative;
+    background-color: rgb(6, 55, 85);
+    height: 100%;
+    overflow: hidden;
+    .menu_city_background {
+      top: 0;
+      left: 0;
+      right: 0;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+    }
+    .wrapper {
+      // position: relative;
+      padding: 0 48px;
+      display: flex;
+      justify-content: space-evenly;
+      height: 80vh;
+      .menu_links {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        position: relative;
+        nav {
+          display: block;
+          ul {
+            padding: 0;
+            margin: 0;
+            li {
+              list-style: none;
+              font-size: 6rem;
+              font-weight: 700;
+              cursor: pointer;
+              height: 135px;
+              width: 700px;
+              overflow: hidden;
+              position: relative;
+              a {
+                position: absolute;
+                color: white;
+                text-decoration: none;
+                &:hover {
+                  color: black;
+                }
+              }
+            }
+          }
+        }
+        .info {
+          color: white;
+          width: 400px;
+          line-height: 1.6rem;
+
+          h3 {
+            font-size: 1.2rem;
+            margin: 8px auto;
+          }
+          p {
+            margin: 0 auto;
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+  .locations {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    color: white;
+    margin-top: 16px;
+    font-weight: 600;
+    span {
+      &:first-child {
+        margin-left: 64px;
+      }
+      font-weight: 400;
+      cursor: pointer;
+      margin: 0 32px;
+      transition: 0.3s ease-in-out;
+      &:hover {
+        background: black;
+        padding: 8px 24px;
+        border-radius: 4px;
+      }
+    }
+  }
+}
