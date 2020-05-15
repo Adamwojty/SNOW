@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem, removeItem } from './actions';
 
-function App() {
+import styles from './App.module.css';
+
+const App = () => {
+  const cart = useSelector((state) => state.cart);
+  console.log(cart);
+  const dispatch = useDispatch();
+
+  useEffect(() => {});
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hello</h1>
+      <div>
+        <button onClick={() => dispatch(addItem('drzewo', 'lorem ipsum dolo res'))}>drzewo</button>
+      </div>
+      <div>
+        <button onClick={() => dispatch(addItem('kwiat', 'lorem ipsum dolo res'))}>kwiat</button>
+      </div>
+      <div>
+        <div className={styles.list__div}>
+          <ul>
+            {cart.map((item) => (
+              <li>
+                {item.title}
+                <button onClick={() => dispatch(removeItem(item.id))}>X</button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
