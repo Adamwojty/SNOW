@@ -28,15 +28,14 @@ header {
         background-color: transparent;
         border: none;
         cursor: pointer;
-        }
-        .hamburger_inner {
-          width: 32px;
-          height: 2px;
-          background: black;
-          transition: all 0.3s linear;
-          position: relative;
-          transform-origin: 1px;
-        }
+      }
+      .hamburger_inner {
+        width: 32px;
+        height: 2px;
+        background: black;
+        transition: all 0.3s linear;
+        position: relative;
+        transform-origin: 1px;
       }
     }
   }
