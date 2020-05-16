@@ -1,0 +1,35 @@
+footer {
+  margin-top: 40px;
+  background-color: rgb(17, 17, 17);
+  color: white;
+
+  .linkWrapper {
+    padding: 50px 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    h3 {
+      font-size: 0.9rem;
+    }
+    p {
+      font-size: 0.7rem;
+      cursor: pointer;
+      &:hover {
+        color: grey;
+      }
+    }
+  }
+  aside {
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid grey;
+    padding: 10px 80px;
+    p {
+      font-size: 0.8rem;
+      letter-spacing: 0.2rem;
+      &:first-child {
+        margin-right: 40px;
+      }
+    }
+  }
+}

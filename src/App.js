@@ -6,6 +6,7 @@ import AboutView from './components/Views/AboutView';
 import NewsView from './components/Views/NewsView';
 import Header from './components/Header/Header';
 import styles from './App.module.scss';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
             </div>
           </div>
         </div>
+        <Footer />
       </BrowserRouter>
     </>
   );

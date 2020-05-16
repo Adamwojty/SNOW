@@ -1,14 +1,21 @@
+.page_wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 .wrapper {
   //   background-color: rgb(38, 160, 200);
   width: 100%;
   min-height: 100vh;
   display: grid;
+  position: relative;
   overflow: hidden;
   grid-template-columns: 40% 30% 30%;
-  grid-template-rows: 600px 700px;
+  grid-template-rows: 600px 600px 50vh;
   grid-template-areas:
     'slogan photo1 photo2'
-    'photo3 photo1 photo2';
+    'photo3 photo1 photo2'
+    'shopButton shopPhoto shopPhoto';
   .slogan_wrapper {
     display: flex;
     flex-direction: column;
@@ -39,12 +46,13 @@
   }
   .img2 {
     margin: 0 10px;
+    height: 60%;
     overflow: hidden;
     grid-area: photo2;
     position: relative;
     img {
       position: absolute;
-      left: -200px;
+      left: -150px;
     }
   }
   .img3 {
@@ -53,8 +61,43 @@
     position: relative;
     img {
       position: absolute;
-      top: 100px;
-      left: -200px;
+      top: 50px;
+      right: 40px;
+    }
+  }
+  .img4 {
+    overflow: hidden;
+    grid-area: shopPhoto;
+    position: relative;
+    img {
+      position: absolute;
+      top: -100px;
+      right: -20px;
+    }
+  }
+  .shop_info {
+    position: absolute;
+    grid-area: shopButton;
+    transform: translateY(50%);
+    right: -120px;
+    z-index: 2;
+    background-color: white;
+    padding: 30px;
+    h2 {
+      font-size: 2rem;
+    }
+    button {
+      cursor: pointer;
+      background-color: black;
+      font-weight: 700;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      transition: 0.3s ease-in-out;
+      &:hover {
+        background-color: white;
+        color: black;
+      }
     }
   }
 }
