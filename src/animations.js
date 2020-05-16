@@ -69,3 +69,39 @@ export const staggerClose = (node1, node2) => {
     },
   });
 };
+
+// Hamburger Open Animation
+
+export const rotateHamburgerLine1 = (node1) => {
+  gsap.to(node1, {
+    duration: 0.3,
+    rotate: 45,
+  });
+};
+export const hideHamburgerLine2 = (node1) => {
+  gsap.to(node1, {
+    duration: 0.2,
+    x: 500,
+    opacity: 0,
+  });
+};
+export const rotateHamburgerLine3 = (node1) => {
+  gsap.to(node1, {
+    duration: 0.3,
+    rotate: -45,
+  });
+};
+// Hamburger Close Animation
+export const rotatebackHamburgerLine = (node1, node2) => {
+  gsap.to([node1, node2], {
+    duration: 0.8,
+    rotate: 0,
+  });
+};
+export const showHamburgerLine2 = (node1) => {
+  gsap.to(node1, {
+    duration: 0.3,
+    x: 0,
+    opacity: 1,
+  });
+};

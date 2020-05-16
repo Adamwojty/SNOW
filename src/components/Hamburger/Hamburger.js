@@ -1,5 +1,9 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-return-assign */
+/* eslint-disable react/require-default-props */
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+
 import styles from './Hamburger.module.scss';
 import {
   displayReveal,
@@ -84,4 +88,5 @@ const Hamburger = ({ state }) => {
     </div>
   );
 };
+
 export default Hamburger;

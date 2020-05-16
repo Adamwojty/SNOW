@@ -20,7 +20,6 @@ header {
         position: fixed;
         z-index: 10000;
         top: 20px;
-        // right: 50px;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -29,7 +28,8 @@ header {
         background-color: transparent;
         border: none;
         cursor: pointer;
-        div {
+        }
+        .hamburger_inner {
           width: 32px;
           height: 2px;
           background: black;
