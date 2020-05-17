@@ -22,7 +22,7 @@
     background-color: rgb(6, 55, 85);
     height: 100%;
     overflow: hidden;
-    .menu_city_background {
+    .menu_location_background {
       top: 0;
       left: 0;
       right: 0;
@@ -30,9 +30,13 @@
       height: 100%;
       width: 100%;
       opacity: 0;
+      z-index: -1;
+      box-sizing: cover;
+      background-repeat: no-repeat;
+      animation: cameraPan 30s infinite;
     }
     .wrapper {
-      // position: relative;
+      position: relative;
       padding: 0 48px;
       display: flex;
       justify-content: space-evenly;
@@ -80,6 +84,7 @@
           p {
             margin: 0 auto;
             font-size: 0.8rem;
+            font-weight: 600;
           }
         }
       }
@@ -106,5 +111,49 @@
         border-radius: 4px;
       }
     }
+  }
+}
+.menu {
+  position: absolute;
+  right: 200px;
+  button {
+    padding: 0;
+    position: fixed;
+    z-index: 10000;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  .hamburger_inner {
+    width: 32px;
+    height: 2px;
+    background: black;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+  }
+}
+
+@keyframes cameraPan {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 40% 10%;
+  }
+  50% {
+    background-position: 0% 10%;
+  }
+  75% {
+    background-position: 10% 40%;
+  }
+  100% {
+    background-position: 0% 0%;
   }
 }

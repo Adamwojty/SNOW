@@ -4,13 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import Hamburger from '../Hamburger/Hamburger';
 import styles from './Header.module.scss';
-import {
-  rotateHamburgerLine1,
-  hideHamburgerLine2,
-  rotateHamburgerLine3,
-  rotatebackHamburgerLine,
-  showHamburgerLine2,
-} from '../../animations';
+import { changeLogoOpen, changeLogoClose } from '../../animations';
 
 const Header = ({ history }) => {
   const [state, setState] = useState({
@@ -18,10 +12,7 @@ const Header = ({ history }) => {
     clicked: null,
     menuName: 'Menu',
   });
-  const [disabled, setDisabled] = useState(false);
-  let line1 = useRef(null);
-  let line2 = useRef(null);
-  let line3 = useRef(null);
+  let logo = useRef(null);
 
   useEffect(() => {
     history.listen(() => {
@@ -29,41 +20,36 @@ const Header = ({ history }) => {
     });
   });
 
-  const handleDisableMenu = () => {
-    setDisabled(!disabled);
-    setTimeout(() => {
-      setDisabled(false);
-    }, 1200);
-  };
-
   const handleMenu = () => {
-    handleDisableMenu();
     if (state.initial === false) {
       setState({
         initial: null,
         clicked: true,
         menuName: 'Close',
       });
-      rotateHamburgerLine1(line1);
-      hideHamburgerLine2(line2);
-      rotateHamburgerLine3(line3);
+      changeLogoOpen(logo);
     } else if (state.clicked === true) {
       setState({
         clicked: !state.clicked,
         menuName: 'Menu',
       });
-      rotatebackHamburgerLine(line1, line3);
-      showHamburgerLine2(line2);
+      changeLogoClose(logo);
     } else if (state.clicked === false) {
       setState({
         clicked: !state.clicked,
         menuName: 'Close',
       });
-      rotateHamburgerLine1(line1);
-      hideHamburgerLine2(line2);
-      rotateHamburgerLine3(line3);
+      changeLogoOpen(logo);
     }
   };
+  const changeHeaderColor = () => {
+    if (state.clicked === false) {
+      changeLogoClose(logo);
+    } else if (state.clicked === true) {
+      changeLogoOpen(logo);
+    }
+  };
+
   return (
     <>
       <header>
@@ -71,19 +57,19 @@ const Header = ({ history }) => {
           <div className={styles.wrapper}>
             <div className={styles.inner_header}>
               <div className={styles.logo}>
-                <Link to="/">SNOW.</Link>
-              </div>
-              <div className={styles.menu}>
-                <button type="button" onClick={handleMenu} disabled={disabled}>
-                  <div className={styles.hamburger_inner} ref={(el) => (line1 = el)} />
-                  <div className={styles.hamburger_inner} ref={(el) => (line2 = el)} />
-                  <div className={styles.hamburger_inner} ref={(el) => (line3 = el)} />
-                </button>
+                <Link to="/" ref={(el) => (logo = el)}>
+                  SNOW.
+                </Link>
               </div>
             </div>
           </div>
         </div>
-        <Hamburger state={state} />
+        <Hamburger
+          state={state}
+          logo={logo}
+          handleMenu={handleMenu}
+          changeHeaderColor={changeHeaderColor}
+        />
       </header>
     </>
   );
