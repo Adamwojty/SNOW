@@ -1,0 +1,40 @@
+.shop_wrapper {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.wrapper {
+  width: 400px;
+  margin-bottom: 50px;
+  img {
+    height: 500px;
+    width: 400px;
+  }
+
+  .description_wrapper {
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    button {
+      border: none;
+      background-color: black;
+      cursor: pointer;
+      margin: 0 auto;
+      color: white;
+      padding: 10px 24px;
+      transition: 0.3s ease-in-out;
+      font-weight: 800;
+      font-size: 0.7rem;
+      &:hover {
+        color: black;
+        background-color: white;
+      }
+    }
+    h2 {
+      margin: 0;
+    }
+  }
+}

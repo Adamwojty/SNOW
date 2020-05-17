@@ -1,7 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import gsap from 'gsap';
-import { useIntersection } from 'react-use';
 import styles from './HomeView.module.scss';
 import img1 from '../../../img/img1.jpg';
 import img2 from '../../../img/img2.jpg';
