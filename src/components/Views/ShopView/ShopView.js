@@ -1,73 +1,46 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import firestore from '../../../firebase';
 import styles from './ShopView.module.scss';
-import img1 from '../../../img/guy.jpg';
+import { addItem, getShopCollection } from '../../../actions';
 
 const ShopView = () => {
-  // const [items, setItems] = useState([]);
-  // const itemsCollectios = firestore.collection('collection');
-  // const itemsCollection = (doc) => {
-  //   return { id: doc.id, ...doc.data() };
-  // };
-  // useEffect(() => {
-  //   const subscribe = itemsCollectios.onSnapshot((snapshot) => {
-  //     const dataFromCollection = snapshot.docs.map(itemsCollection);
-  //     setItems(dataFromCollection);
-  //   });
-  //   return () => subscribe;
-  // });
+  const dispatch = useDispatch();
+  const [collection, setCollection] = useState([]);
+  const skisCollections = firestore.collection('skis');
+
+  useEffect(() => {
+    const documentsCollection = (doc) => {
+      return { id: doc.id, ...doc.data() };
+    };
+    const subscribe = skisCollections.onSnapshot((snapshot) => {
+      const dataFromCollection = snapshot.docs.map(documentsCollection);
+      setCollection(dataFromCollection);
+      dispatch(getShopCollection(dataFromCollection));
+    });
+    return () => subscribe;
+  }, []);
 
   return (
     <div className={styles.page_wrapper}>
       <div className={styles.shop_wrapper}>
-        <div className={styles.wrapper}>
-          <img src={img1} alt="3" />
-          <div className={styles.description_wrapper}>
-            <h2>RED SKIS</h2>
-            <p>Price: 299$</p>
-            <button type="button">ADD TO Cart</button>
+        {collection.map((item) => (
+          <div className={styles.wrapper} key={item.title}>
+            <img src={item.image} alt="3" />
+            <div className={styles.description_wrapper}>
+              <h2>{item.title}</h2>
+              <p>Price: {item.price}$</p>
+              <button
+                type="button"
+                onClick={() => {
+                  dispatch(addItem(item));
+                }}
+              >
+                Add TO Cart
+              </button>
+            </div>
           </div>
-        </div>
-        <div className={styles.wrapper}>
-          <img src={img1} alt="3" />
-          <div className={styles.description_wrapper}>
-            <h2>RED SKIS</h2>
-            <p>Price: 299$</p>
-            <button type="button">ADD TO Cart</button>
-          </div>
-        </div>
-        <div className={styles.wrapper}>
-          <img src={img1} alt="3" />
-          <div className={styles.description_wrapper}>
-            <h2>RED SKIS</h2>
-            <p>Price: 299$</p>
-            <button type="button">ADD TO Cart</button>
-          </div>
-        </div>
-        <div className={styles.wrapper}>
-          <img src={img1} alt="3" />
-          <div className={styles.description_wrapper}>
-            <h2>RED SKIS</h2>
-            <p>Price: 299$</p>
-            <button type="button">ADD TO Cart</button>
-          </div>
-        </div>
-        <div className={styles.wrapper}>
-          <img src={img1} alt="3" />
-          <div className={styles.description_wrapper}>
-            <h2>RED SKIS</h2>
-            <p>Price: 299$</p>
-            <button type="button">ADD TO Cart</button>
-          </div>
-        </div>
-        <div className={styles.wrapper}>
-          <div className={styles.description_wrapper}>
-            <img src={img1} alt="3" />
-            <h2>RED SKIS</h2>
-            <p>Price: 299$</p>
-            <button type="button">ADD TO Cart</button>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

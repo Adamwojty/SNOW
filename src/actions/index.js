@@ -1,4 +1,4 @@
-export const addItem = (itemType, itemContent, id) => {
+export const addItem = (itemType, itemContent) => {
   const getId = () => `${Math.random().toString(36).substr(2, 9)}`;
   return {
     type: 'ADD_ITEM',
@@ -15,5 +15,12 @@ export const removeItem = (id) => {
     payload: {
       id,
     },
+  };
+};
+
+export const getShopCollection = (collection) => {
+  return {
+    type: 'GET_COLLECTION',
+    payload: collection,
   };
 };
