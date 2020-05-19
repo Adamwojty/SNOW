@@ -73,6 +73,12 @@ const Hamburger = ({ state, handleMenu, changeHeaderColor }) => {
   let burgerline1 = useRef(null);
   let burgerline2 = useRef(null);
   let burgerline3 = useRef(null);
+  const handleDisableMenu = () => {
+    setDisabled(!disabled);
+    setTimeout(() => {
+      setDisabled(false);
+    }, 1200);
+  };
 
   useEffect(() => {
     handleDisableMenu();
@@ -143,12 +149,7 @@ const Hamburger = ({ state, handleMenu, changeHeaderColor }) => {
       duration: 0.5,
     });
   };
-  const handleDisableMenu = () => {
-    setDisabled(!disabled);
-    setTimeout(() => {
-      setDisabled(false);
-    }, 1200);
-  };
+
   const handleHover = (e) => {
     gsap.to(e.target, {
       duration: 0.3,

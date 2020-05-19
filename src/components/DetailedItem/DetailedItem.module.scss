@@ -1,0 +1,74 @@
+.item_wrapper {
+  border-top: 1px solid rgb(17, 17, 17);
+  margin-top: 50px;
+  padding: 20px;
+  height: 70vh;
+  width: 100%;
+
+  display: flex;
+  flex: row;
+  .image_wrapper {
+    width: 600px;
+    height: 100%;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .itemDescription {
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+    h2 {
+      margin: 0;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+    }
+    p {
+      font-size: 1.4rem;
+    }
+    .sizeSelection_wrapper {
+      height: 100px;
+      width: 100%;
+      margin-top: 100px;
+    }
+
+    input[type='radio'] {
+      position: absolute;
+      visibility: hidden;
+      display: none;
+    }
+
+    label {
+      color: white;
+      margin-right: 30px;
+      background-color: black;
+      display: inline-block;
+      cursor: pointer;
+      font-weight: bold;
+      padding: 10px 38px;
+    }
+
+    input[type='radio']:checked + label {
+      color: black;
+      background: white;
+      border: 1px solid rgb(17, 17, 17);
+    }
+    button {
+      margin-top: 30px;
+      color: white;
+      background-color: black;
+      padding: 10px 38px;
+      width: 50%;
+      border: none;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+      &:hover {
+        background-color: white;
+        color: black;
+      }
+    }
+  }
+}

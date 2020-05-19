@@ -6,12 +6,11 @@
 .wrapper {
   //   background-color: rgb(38, 160, 200);
   width: 100%;
-  min-height: 100vh;
   display: grid;
   position: relative;
   overflow: hidden;
   grid-template-columns: 40% 30% 30%;
-  grid-template-rows: 600px 600px 50vh;
+  grid-template-rows: 600px 600px 500px;
   grid-template-areas:
     'slogan photo1 photo2'
     'photo3 photo1 photo2'
@@ -70,6 +69,7 @@
     grid-area: shopPhoto;
     position: relative;
     opacity: 1;
+    height: 500px;
     img {
       position: absolute;
       top: -100px;

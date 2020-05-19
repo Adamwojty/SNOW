@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-
+import DetailPage from './components/Views/DetailPage/DetailPage';
 import HomeView from './components/Views/HomeView/HomeView';
 import ShopView from './components/Views/ShopView/ShopView';
 import AboutView from './components/Views/AboutView';
@@ -25,12 +25,13 @@ const App = () => {
                     <Route exact path="/shop" component={ShopView} />
                     <Route exact path="/about" component={AboutView} />
                     <Route exact path="/news" component={NewsView} />
+                    <Route exact path="/shop/:id" component={DetailPage} />
                   </Switch>
                 </div>
               </div>
             </div>
+            <Footer />
           </div>
-          <Footer />
         </ScrollToTop>
       </BrowserRouter>
     </>
