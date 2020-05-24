@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import styles from './DetailedItem.module.scss';
 
 const sizes = ['162', '182', '198'];
 
 const DetailedItem = ({ title, price, image }) => {
+  const radio = useRef(null);
+  const [size, setSize] = useState('');
+
   return (
     <div className={styles.item_wrapper}>
       <div className={styles.image_wrapper}>
@@ -13,14 +17,16 @@ const DetailedItem = ({ title, price, image }) => {
         <h2>{title}</h2>
         <p>Price: {price} $</p>
         <div className={styles.sizeSelection_wrapper}>
-          {sizes.map((size) => (
-            <>
-              <input type="radio" id={`${size}`} name="selector" />
-              <label htmlFor={`${size}`}>{size}</label>
-            </>
-          ))}
+          <form>
+            {sizes.map((item) => (
+              <>
+                <input type="radio" id={`${item}`} name="selector" key={item} />
+                <label htmlFor={`${item}`}>{item}</label>
+              </>
+            ))}
+            <button type="submit">ADD TO CART</button>
+          </form>
         </div>
-        <button type="button"> ADD TO CART</button>
       </div>
     </div>
   );

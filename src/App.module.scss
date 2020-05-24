@@ -1,16 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
-
+@import './constants/constants.module';
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  // background-color: rgb(6, 55, 85);
+  box-sizing: border-box;
 }
 .container {
-  width: 1280px;
-  min-width: 1280px;
+  width: 70vw;
   margin: 0 auto;
+  @media (max-width: $desktop) {
+    width: 90vw;
+    padding: 30px;
+  }
+  @media (max-width: $desktop) {
+    width: 90vw;
+    padding: 10px;
+  }
   .wrapper {
     .home {
       display: flex;

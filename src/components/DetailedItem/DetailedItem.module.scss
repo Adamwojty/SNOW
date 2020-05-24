@@ -1,8 +1,9 @@
+@import '../../constants/constants.module';
 .item_wrapper {
-  border-top: 1px solid rgb(17, 17, 17);
+  border-top: 1px solid $light-black;
   margin-top: 50px;
   padding: 20px;
-  height: 70vh;
+  height: 700px;
   width: 100%;
 
   display: flex;
@@ -41,24 +42,26 @@
     }
 
     label {
-      color: white;
+      color: $white;
       margin-right: 30px;
-      background-color: black;
+      background-color: $black;
       display: inline-block;
       cursor: pointer;
       font-weight: bold;
       padding: 10px 38px;
+      transition: 0.3s ease-in-out;
     }
 
     input[type='radio']:checked + label {
-      color: black;
-      background: white;
-      border: 1px solid rgb(17, 17, 17);
+      color: $black;
+      background: $white;
+      border: 1px solid $light-black;
+      padding: 10px 45px;
     }
     button {
       margin-top: 30px;
-      color: white;
-      background-color: black;
+      color: $white;
+      background-color: $black;
       padding: 10px 38px;
       width: 50%;
       border: none;
@@ -66,8 +69,8 @@
       cursor: pointer;
       transition: 0.3s ease-in-out;
       &:hover {
-        background-color: white;
-        color: black;
+        background-color: $white;
+        color: $black;
       }
     }
   }

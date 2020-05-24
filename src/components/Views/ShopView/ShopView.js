@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import firestore from '../../../firebase';
@@ -6,11 +6,14 @@ import styles from './ShopView.module.scss';
 import { addItem, getShopCollection } from '../../../actions';
 
 const ShopView = () => {
+  let shopWrapper = useRef(null);
   const [collection, setCollection] = useState('skis');
   const dispatch = useDispatch();
   const [items, setItems] = useState([]);
 
   useEffect(() => {
+    console.log(shopWrapper.offsetWidth);
+
     const skisCollections = firestore.collection(collection);
     const documentsCollection = (doc) => {
       return { id: doc.id, ...doc.data() };
@@ -36,7 +39,7 @@ const ShopView = () => {
           GOOGLES
         </button>
       </div>
-      <div className={styles.shop_wrapper}>
+      <div className={styles.shop_wrapper} ref={(el) => (shopWrapper = el)}>
         {items.map((item) => (
           <div className={styles.wrapper} key={item.title}>
             <img src={item.image} alt="3" />

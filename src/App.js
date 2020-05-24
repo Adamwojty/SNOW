@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import DetailPage from './components/Views/DetailPage/DetailPage';
 import HomeView from './components/Views/HomeView/HomeView';
 import ShopView from './components/Views/ShopView/ShopView';
-import AboutView from './components/Views/AboutView';
+import AboutView from './components/Views/AboutView/AboutView';
 import NewsView from './components/Views/NewsView';
 import Header from './components/Header/Header';
 import styles from './App.module.scss';

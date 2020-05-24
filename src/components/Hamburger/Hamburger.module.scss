@@ -1,3 +1,4 @@
+@import '../../constants/constants.module';
 .hamburger_menu {
   display: none;
   position: fixed;
@@ -5,23 +6,24 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 100vh;
-  width: 100%;
+  height: 100%;
+
   .menu_secondary_background_color {
-    background-color: black;
+    background-color: $black;
     position: fixed;
     z-index: -1;
     top: 0;
     left: 0;
     right: 0;
-    height: 100%;
     width: 100%;
   }
   .menu_layer {
     position: relative;
-    background-color: rgb(6, 55, 85);
+    background-color: $menu-blue;
     height: 100%;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
     .menu_location_background {
       top: 0;
       left: 0;
@@ -31,9 +33,7 @@
       width: 100%;
       opacity: 0;
       z-index: -1;
-      box-sizing: cover;
       background-repeat: no-repeat;
-      animation: cameraPan 30s infinite;
     }
     .wrapper {
       position: relative;
@@ -41,50 +41,110 @@
       display: flex;
       justify-content: space-evenly;
       height: 80vh;
+      @media (max-width: $desktop) {
+        padding: 100px;
+        height: 50vh;
+      }
+      @media (max-width: $tablet) {
+        padding-bottom: 50px;
+      }
+      @media (max-width: $mobile) {
+        height: 100%;
+        padding: 0 30px 50px 30px;
+      }
+
       .menu_links {
         width: 100%;
         display: flex;
         justify-content: space-evenly;
+        flex-direction: row;
         align-items: center;
         position: relative;
+
+        @media (max-width: $tablet) {
+          flex-direction: column;
+        }
+
         nav {
           display: block;
+          @media (max-width: $mobile) {
+            order: 2;
+          }
+
           ul {
             padding: 0;
             margin: 0;
+            @media (max-width: $tablet) {
+              display: flex;
+            }
+            @media (max-width: $mobile) {
+              flex-direction: column;
+            }
             li {
               list-style: none;
-              font-size: 6rem;
-              font-weight: 700;
+              font-size: $XLHeader;
+              font-weight: $bold;
               cursor: pointer;
               height: 135px;
-              width: 700px;
+              width: 40vw;
               overflow: hidden;
               position: relative;
+              @media (max-width: $desktop) {
+                font-size: $LHeader * 1.5;
+              }
+              @media (max-width: $tablet) {
+                font-size: $MHeader;
+                height: $LHeader;
+                width: 200px;
+                display: flex;
+                justify-content: center;
+              }
+              @media (max-width: $mobile) {
+                font-size: $LHeader;
+                width: 100vw;
+                height: 100px;
+              }
               a {
                 position: absolute;
-                color: white;
+                color: $white;
                 text-decoration: none;
+
                 &:hover {
-                  color: black;
+                  color: $black;
                 }
               }
             }
           }
         }
         .info {
-          color: white;
-          width: 400px;
+          color: $white;
+          width: 25vw;
           line-height: 1.6rem;
+          @media (max-width: $desktop) {
+            width: 80%;
+          }
+          @media (max-width: $mobile) {
+            width: 100%;
+          }
 
-          h3 {
-            font-size: 1.2rem;
+          h2 {
+            font-size: $LTextFont * 1.5;
             margin: 8px auto;
           }
           p {
             margin: 0 auto;
-            font-size: 0.8rem;
-            font-weight: 600;
+            font-size: $MTextFont;
+            font-weight: $regular;
+            @media (max-width: $desktop) {
+              font-size: $MTextFont;
+            }
+            @media (max-width: $tablet) {
+              font-size: $STextFont * 1.2;
+              margin-top: 30px;
+            }
+            @media (max-width: $mobile) {
+              width: 100%;
+            }
           }
         }
       }
@@ -94,19 +154,40 @@
     display: flex;
     align-content: center;
     justify-content: center;
-    color: white;
+    color: $white;
+    object-fit: cover;
     margin-top: 16px;
     font-weight: 600;
+    @media (max-width: $tablet) {
+      font-size: $STextFont * 1.2;
+    }
+    @media (max-width: $tablet) {
+      font-size: $STextFont * 1.2;
+    }
+    @media (max-width: $mobile) {
+      display: none;
+    }
+
     span {
       &:first-child {
         margin-left: 64px;
+        @media (max-width: $mobile) {
+          margin-left: 20px;
+        }
       }
-      font-weight: 400;
+
+      font-weight: $regular;
       cursor: pointer;
       margin: 0 32px;
       transition: 0.3s ease-in-out;
+      @media (max-width: $tablet) {
+        margin: 0 20px;
+      }
+      @media (max-width: $mobile) {
+        margin: 0 10px;
+      }
       &:hover {
-        background: black;
+        background: $black;
         padding: 8px 24px;
         border-radius: 4px;
       }
@@ -115,12 +196,16 @@
 }
 .menu {
   position: absolute;
-  right: 200px;
+  top: 25px;
+  right: 5vw;
+  @media (max-width: $desktop) {
+    right: 100px;
+    top: 20px;
+  }
   button {
     padding: 0;
     position: fixed;
     z-index: 10000;
-    top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -133,27 +218,9 @@
   .hamburger_inner {
     width: 32px;
     height: 2px;
-    background: black;
+    background: $black;
     transition: all 0.3s linear;
     position: relative;
     transform-origin: 1px;
-  }
-}
-
-@keyframes cameraPan {
-  0% {
-    background-position: 0% 0%;
-  }
-  25% {
-    background-position: 40% 10%;
-  }
-  50% {
-    background-position: 0% 10%;
-  }
-  75% {
-    background-position: 10% 40%;
-  }
-  100% {
-    background-position: 0% 0%;
   }
 }

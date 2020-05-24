@@ -1,15 +1,16 @@
+@import '../../../constants/constants.module';
 .wrapper {
   width: 100%;
   .returnButton {
-    background-color: black;
-    color: white;
+    background-color: $black;
+    color: $white;
     font-weight: 800;
     text-decoration: none;
     padding: 10px 24px;
     transition: 0.3s ease-in-out;
     &:hover {
-      background-color: white;
-      color: black;
+      background-color: $white;
+      color: $black;
     }
   }
 }

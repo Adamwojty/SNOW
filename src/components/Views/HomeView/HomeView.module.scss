@@ -1,105 +1,153 @@
+@import '../../../constants/constants.module';
+
 .page_wrapper {
   display: flex;
   flex-direction: column;
   width: 100%;
+  @media (max-width: $desktop) {
+  }
 }
 .wrapper {
-  //   background-color: rgb(38, 160, 200);
-  width: 100%;
-  display: grid;
-  position: relative;
-  overflow: hidden;
-  grid-template-columns: 40% 30% 30%;
-  grid-template-rows: 600px 600px 500px;
-  grid-template-areas:
-    'slogan photo1 photo2'
-    'photo3 photo1 photo2'
-    'shopButton shopPhoto shopPhoto';
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 200px;
+  @media (max-width: $desktop) {
+    margin-bottom: 250px;
+  }
+  @media (max-width: $tablet) {
+    flex-direction: column;
+  }
+  @media (max-width: $mobile) {
+    margin-bottom: 50px;
+  }
+
   .slogan_wrapper {
+    margin-top: 20vh;
     display: flex;
     flex-direction: column;
-    grid-area: slogan;
-    justify-content: center;
+    @media (max-width: $desktop) {
+      width: 50vw;
+    }
+    @media (max-width: $tablet) {
+      font-size: $MHeader;
+      margin-top: 10vh;
+      margin: 0 auto;
+      width: 100%;
+      margin-bottom: 50px;
+    }
+
     header {
-      margin-top: 0;
-      font-size: 3rem;
-      font-weight: 700;
-      display: inline-block;
-      width: 70%;
+      font-size: $LHeader;
+      font-weight: $bold;
+      margin: 0 0 20px 0;
+      line-height: $LHeader + 0.5rem;
+      @media (max-width: $desktop) {
+        padding: 0;
+      }
+      @media (max-width: $tablet) {
+        font-size: $LHeader - 0.5rem;
+        text-align: center;
+        height: $LHeader;
+        margin-bottom: 50px;
+      }
+      @media (max-width: $mobile) {
+        font-size: $LHeader - 1rem;
+      }
     }
     p {
-      margin-top: 50px;
-      width: 70%;
-    }
-  }
-  .img1 {
-    margin-right: 30px;
-    overflow: hidden;
-    grid-area: photo1;
-    position: relative;
-    img {
-      position: absolute;
-      top: 200px;
-      left: -200px;
+      width: 80%;
+      font-size: $LTextFont;
+      @media (max-width: $desktop) {
+        font-size: $MTextFont;
+      }
+      @media (max-width: $tablet) {
+        text-align: center;
+        width: 100%;
+      }
     }
   }
   .img2 {
-    margin: 0 10px;
-    height: 60%;
+    width: 80%;
+    height: 800px;
     overflow: hidden;
-    grid-area: photo2;
-    position: relative;
+    @media (max-width: $desktop) {
+      height: 600px;
+      width: 50%;
+    }
+    @media (max-width: $tablet) {
+      margin: 0 auto;
+      height: 800px;
+      width: 80%;
+    }
+    @media (max-width: $mobile) {
+      height: 600px;
+    }
     img {
-      position: absolute;
-      left: -150px;
+      width: 100%;
+    }
+  }
+}
+.shop_section {
+  display: flex;
+  justify-content: flex-end;
+  @media (max-width: $tablet) {
+    flex-direction: column;
+  }
+
+  .shop_info {
+    transform: translate(50%, 50%);
+    background-color: $white;
+    padding: 25px;
+    height: 200px;
+    @media (max-width: $desktop) {
+      transform: translate(40%, 40%);
+    }
+    @media (max-width: $tablet) {
+      order: 2;
+      width: 50%;
+      transform: translate(40%, -50%);
+    }
+    @media (max-width: $mobile) {
+      padding: 10px;
+    }
+    h2 {
+      @media (max-width: $mobile) {
+        font-size: $LTextFont;
+      }
+    }
+    p {
+      @media (max-width: $mobile) {
+        font-size: $MTextFont;
+      }
+    }
+
+    button {
+      cursor: pointer;
+      margin-top: 25px;
+      padding: 15px 30px;
+      background-color: $black;
+      border: none;
+      color: $white;
+      font-weight: $bold;
+      transition: 0.3s ease-in-out;
+      &:hover {
+        color: $black;
+        background-color: $white;
+      }
     }
   }
   .img3 {
+    width: 60%;
+    justify-self: flex-end;
     overflow: hidden;
-    grid-area: photo3;
-    position: relative;
+    @media (max-width: $desktop) {
+      width: 50vw;
+    }
+    @media (max-width: $tablet) {
+      width: 100%;
+    }
     img {
-      position: absolute;
-      top: 50px;
-      right: 40px;
-    }
-  }
-  .img4 {
-    overflow: hidden;
-    grid-area: shopPhoto;
-    position: relative;
-    opacity: 1;
-    height: 500px;
-    img {
-      position: absolute;
-      top: -100px;
-      right: -20px;
-    }
-  }
-  .shop_info {
-    position: absolute;
-    grid-area: shopButton;
-    transform: translateY(50%);
-    right: -120px;
-    z-index: 2;
-    background-color: white;
-    padding: 30px;
-    opacity: 1;
-    h2 {
-      font-size: 2rem;
-    }
-    button {
-      cursor: pointer;
-      background-color: black;
-      font-weight: 700;
-      color: white;
-      border: none;
-      padding: 15px 30px;
-      transition: 0.3s ease-in-out;
-      &:hover {
-        background-color: white;
-        color: black;
-      }
+      width: 100%;
     }
   }
 }

@@ -10,7 +10,7 @@ const DetailPage = ({ match }) => {
   useEffect(() => {
     // setID(match.params.id);
     setItem(...collection.filter((shopItem) => shopItem.id === match.params.id));
-  }, []);
+  }, [collection]);
 
   return (
     <div className={styles.wrapper}>

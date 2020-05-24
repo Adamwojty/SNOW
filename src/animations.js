@@ -126,8 +126,8 @@ export const changeLogoClose = (node1) => {
 };
 // HomePage Animations
 
-export const staggerPhotoReveal = (node1, node2, node3) => {
-  gsap.from([node1, node2, node3], {
+export const staggerPhotoReveal = (node1) => {
+  gsap.from(node1, {
     delay: 0.5,
     duration: 1.2,
     y: 300,

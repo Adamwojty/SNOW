@@ -1,32 +1,52 @@
+@import '../../constants/constants.module';
+
 footer {
   margin-top: 40px;
-  background-color: rgb(17, 17, 17);
-  color: white;
+  background-color: $light-black;
+  color: $white;
+  @media (max-width: $mobile) {
+    margin-top: 20px;
+  }
 
   .linkWrapper {
     padding: 50px 80px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    @media (max-width: $mobile) {
+      padding: 30px 5px;
+    }
     h3 {
       font-size: 0.9rem;
+      @media (max-width: $mobile) {
+        font-size: $STextFont;
+      }
     }
     p {
-      font-size: 0.7rem;
+      font-size: $STextFont;
       cursor: pointer;
       &:hover {
-        color: grey;
+        color: $grey;
+      }
+      @media (max-width: $mobile) {
+        font-size: $XSTextFont;
       }
     }
   }
   aside {
     display: flex;
     flex-direction: row;
-    border-top: 1px solid grey;
+    border-top: 1px solid $grey;
     padding: 10px 80px;
+    @media (max-width: $mobile) {
+      padding: 10px 20px;
+    }
     p {
-      font-size: 0.8rem;
+      font-size: $STextFont;
       letter-spacing: 0.2rem;
+      @media (max-width: $mobile) {
+        font-size: $XSTextFont;
+      }
       &:first-child {
         margin-right: 40px;
       }

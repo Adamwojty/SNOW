@@ -114,7 +114,7 @@ const Hamburger = ({ state, handleMenu, changeHeaderColor }) => {
     gsap.to(description, {
       innerHTML: location.description,
       color: 'black',
-      duration: 0.5,
+      duration: 0.1,
       fontSize: '0.8rem',
     });
     gsap.to(descriptionHeader, {
@@ -122,31 +122,25 @@ const Hamburger = ({ state, handleMenu, changeHeaderColor }) => {
       color: 'black',
       duration: 0.5,
     });
-    gsap.from(locationBackground, {
-      duration: 0.3,
-      skewY: 1,
-      transformOrigin: 'top right ',
-    });
   };
 
   const handleCityReturn = () => {
-    gsap.to(locationBackground, {
-      duration: 0.4,
-      opacity: 0,
-      skewY: 0,
-    });
     gsap.to(description, {
       innerHTML: `that are progressive in their construction as well as in their use in freeride,
       freestyle and all-mountain skiing. Some of the best athletes in the world inform our
       product journey. We capture their stories to inspire fans with exciting content.`,
       color: 'white',
-      duration: 0.2,
+      duration: 0.1,
       fontSize: '0.8rem',
     });
     gsap.to(descriptionHeader, {
       innerHTML: 'We make high-quality skis',
       color: 'white',
       duration: 0.5,
+    });
+    gsap.to(locationBackground, {
+      duration: 0,
+      background: ``,
     });
   };
 
@@ -239,7 +233,7 @@ const Hamburger = ({ state, handleMenu, changeHeaderColor }) => {
               <span
                 key={el.name}
                 onMouseEnter={() => handleLocation(el)}
-                onMouseOut={handleCityReturn}
+                onMouseOut={() => handleCityReturn()}
               >
                 {el.name}
               </span>

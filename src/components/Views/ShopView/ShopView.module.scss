@@ -1,3 +1,4 @@
+@import '../../../constants/constants.module';
 .page_wrapper {
   width: 100%;
 }
@@ -6,7 +7,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid rgb(17, 17, 17);
+  border-bottom: 1px solid $light-black;
   margin-bottom: 50px;
   button {
     height: 150px;
@@ -14,15 +15,15 @@
     font-weight: 800;
     font-size: 1.3rem;
     border: none;
-    background-color: rgb(17, 17, 17);
+    background-color: $light-black;
     color: white;
     cursor: pointer;
     transition: 0.3s ease-in-out;
     margin-bottom: 40px;
     &:hover {
       background-color: white;
-      color: rgb(17, 17, 17);
-      border: 1px solid rgb(17, 17, 17);
+      color: $light-black;
+      border: 1px solid $light-black;
     }
   }
 }
@@ -49,7 +50,7 @@
     flex-direction: column;
     .redirect_button {
       border: none;
-      background-color: black;
+      background-color: $black;
       cursor: pointer;
       margin: 0 auto;
       color: white;
@@ -60,7 +61,7 @@
       text-decoration: none;
       &:hover {
         color: black;
-        background-color: white;
+        background-color: $white;
       }
     }
     h2 {
