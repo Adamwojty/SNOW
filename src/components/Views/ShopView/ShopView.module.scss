@@ -10,20 +10,25 @@
   border-bottom: 1px solid $light-black;
   margin-bottom: 50px;
   button {
-    height: 150px;
+    height: 120px;
     width: 250px;
     font-weight: 800;
-    font-size: 1.3rem;
+    font-size: $LTextFont;
     border: none;
     background-color: $light-black;
-    color: white;
+    color: $white;
     cursor: pointer;
     transition: 0.3s ease-in-out;
     margin-bottom: 40px;
     &:hover {
-      background-color: white;
+      background-color: $white;
       color: $light-black;
       border: 1px solid $light-black;
+    }
+    @media (max-width: $tablet) {
+      width: 150px;
+      height: 80px;
+      font-size: $MTextFont;
     }
   }
 }
@@ -48,6 +53,9 @@
     padding: 20px 20px;
     display: flex;
     flex-direction: column;
+    @media (max-width: $mobile) {
+      text-align: center;
+    }
     .redirect_button {
       border: none;
       background-color: $black;
@@ -60,7 +68,7 @@
       font-size: 0.7rem;
       text-decoration: none;
       &:hover {
-        color: black;
+        color: $black;
         background-color: $white;
       }
     }

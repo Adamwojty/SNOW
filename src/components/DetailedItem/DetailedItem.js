@@ -1,12 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useRef } from 'react';
 import styles from './DetailedItem.module.scss';
 
 const sizes = ['162', '182', '198'];
 
 const DetailedItem = ({ title, price, image }) => {
-  const radio = useRef(null);
-  const [size, setSize] = useState('');
+  // const radio = useRef(null);
+  // const [size, setSize] = useState('');
 
   return (
     <div className={styles.item_wrapper}>
