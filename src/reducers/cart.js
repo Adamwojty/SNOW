@@ -5,8 +5,10 @@ const cartReducer = (state = [], action) => {
         ...state,
         {
           title: action.payload.itemType,
-          content: action.payload.itemContent,
+          price: action.payload.price,
           id: action.payload.id,
+          image: action.payload.image,
+          size: action.payload.size,
         },
       ];
     case 'REMOVE_ITEM':

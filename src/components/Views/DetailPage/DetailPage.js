@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import DetailedItem from '../../DetailedItem/DetailedItem';
 import styles from './DetailPage.module.scss';
 
-const DetailPage = ({ match, location }) => {
+const DetailPage = ({ match }) => {
   const [item, setItem] = useState();
   const collection = useSelector((state) => state.collection);
   const shopVisited = useSelector((state) => state.visitedShop);
@@ -28,4 +29,8 @@ const DetailPage = ({ match, location }) => {
     </div>
   );
 };
+DetailPage.propTypes = {
+  match: PropTypes.string.isRequired,
+};
+
 export default DetailPage;

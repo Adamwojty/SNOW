@@ -1,11 +1,12 @@
-export const addItem = (itemType, itemContent) => {
-  const getId = () => `${Math.random().toString(36).substr(2, 9)}`;
+export const addItem = (itemType, price, image, size, id) => {
   return {
     type: 'ADD_ITEM',
     payload: {
       itemType,
-      id: getId(),
-      itemContent,
+      id,
+      price,
+      image,
+      size,
     },
   };
 };

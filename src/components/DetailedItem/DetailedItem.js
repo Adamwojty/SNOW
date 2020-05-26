@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import styles from './DetailedItem.module.scss';
 import { addItem } from '../../actions';
 
 const sizes = ['162', '182', '198'];
 
-const DetailedItem = ({ title, price, image, redirect }) => {
+const DetailedItem = ({ title, price, image, id }) => {
   const [length, setLength] = useState();
-  const [item, setItem] = useState({});
-  useDispatch(addItem(title));
-  const handleItemToCart = () => {
+  const dispatch = useDispatch();
+  // useDispatch(addItem(title));
+  const handleItemToCart = (titleOfItem, priceOfItem, imageOfItem, lengthOfItem) => {
     if (!length) {
       console.log('select size first');
-    } else return setItem([title, price, image, length]);
+    } else {
+      dispatch(addItem(titleOfItem, priceOfItem, imageOfItem, lengthOfItem, id));
+    }
   };
 
   return (
@@ -34,10 +36,7 @@ const DetailedItem = ({ title, price, image, redirect }) => {
                 </label>
               </span>
             ))}
-            <button
-              type="button"
-              onClick={() => handleItemToCart({ title }, { price }, { image }, length)}
-            >
+            <button type="button" onClick={() => handleItemToCart(title, price, image, length)}>
               ADD TO CART
             </button>
           </form>
@@ -45,5 +44,11 @@ const DetailedItem = ({ title, price, image, redirect }) => {
       </div>
     </div>
   );
+};
+DetailedItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  image: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
 export default DetailedItem;

@@ -2,8 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styles from './ShopView.module.scss';
-import { addItem, visitedShop } from '../../../actions';
-import { useFillerItems } from '../../../hooks/useFillerItems';
+import { visitedShop } from '../../../actions';
+// import { useFillerItems } from '../../../hooks/useFillerItems';
 import { useStoreFireBase } from '../../../hooks/useStoreFirebase';
 
 const ShopView = () => {
@@ -12,7 +12,6 @@ const ShopView = () => {
   const [collection, setCollection] = useState('skis');
   const visitShop = useSelector((state) => state.visitedShop);
   const dispatch = useDispatch();
-
   const items = useStoreFireBase(collection);
   // const imgWidth = imgWrapper.current?.offsetWidth;
   // const fillerItems = useFillerItems(shopWrapper, imgWrapper, items);
@@ -43,13 +42,7 @@ const ShopView = () => {
             <div className={styles.description_wrapper}>
               <h2>{item.title}</h2>
               <p>Price: {item.price}$</p>
-              <Link
-                className={styles.redirect_button}
-                to={{ pathname: `/shop/${item.id}` }}
-                onClick={() => {
-                  dispatch(addItem(item));
-                }}
-              >
+              <Link className={styles.redirect_button} to={{ pathname: `/shop/${item.id}` }}>
                 {/* {fillerItems &&
                   fillerItems.map((filleritem) => (
                     <div style={{ width: `${imgWidth}px`, height: '1px' }} key={filleritem} />
