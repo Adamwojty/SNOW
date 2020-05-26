@@ -1,0 +1,72 @@
+@import '../../constants/constants.module';
+
+.Wrapper {
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding: 20px 40px;
+  width: 500px;
+  height: 100vh;
+  background-color: $white;
+  z-index: 12;
+  border-left: 2px solid $menu-blue;
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  transform: translateX(1000px);
+
+  h2 {
+    margin-bottom: 0;
+  }
+
+  .itemContainer {
+    padding: 20px;
+    height: 200px;
+    width: 90%;
+    display: flex;
+    border: 1px solid $light-black;
+    border-radius: 5px;
+
+    img {
+      width: 150px;
+      height: 200px;
+    }
+    .itemDescription {
+      justify-content: center;
+      position: relative;
+      width: 100%;
+      margin-left: 20px;
+      display: flex;
+      flex-direction: column;
+      h3 {
+        margin: 0 0 20px 0;
+      }
+      h4 {
+        margin: 0;
+      }
+      p {
+        margin: 0;
+      }
+      button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-weight: $bold;
+        font-size: $LTextFont;
+      }
+    }
+  }
+  .buy_button {
+    margin-top: 50px;
+    cursor: pointer;
+    width: 50%;
+    background-color: $black;
+    color: $white;
+    padding: 10px 25px;
+    border: none;
+    font-weight: $bold;
+  }
+}
