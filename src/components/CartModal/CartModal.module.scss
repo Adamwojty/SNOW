@@ -1,0 +1,28 @@
+@import '../../constants/constants.module';
+
+.Wrapper {
+  position: fixed;
+  top: 20px;
+  right: 150px;
+  width: 40px;
+  height: 40px;
+  z-index: 999999999;
+  button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    position: relative;
+    p {
+      margin: 0;
+      border-radius: 25px;
+      width: 35px;
+      height: 35px;
+      background-color: $menu-blue;
+      color: $white;
+      font-weight: 800;
+      font-size: $LTextFont + 0.5rem;
+      position: absolute;
+      transform: translate(50%, -40%);
+    }
+  }
+}

@@ -9,6 +9,7 @@ import Header from './components/Header/Header';
 import styles from './App.module.scss';
 import Footer from './components/Footer/Footer';
 import ScrollToTop from './ScrollToTop';
+import CartModal from './components/CartModal/CartModal';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <div>
             <div className={styles.container}>
               <Header />
+              <CartModal />
               <div className={styles.wrapper}>
                 <div className={styles.home}>
                   <Switch>
