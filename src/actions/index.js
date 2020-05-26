@@ -24,3 +24,9 @@ export const getShopCollection = (collection) => {
     payload: collection,
   };
 };
+export const visitedShop = (visitShop) => {
+  return {
+    type: 'VISITED_SHOP',
+    payload: visitShop,
+  };
+};

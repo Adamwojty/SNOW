@@ -1,31 +1,28 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useRef, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import firestore from '../../../firebase';
 import styles from './ShopView.module.scss';
-import { addItem, getShopCollection } from '../../../actions';
+import { addItem, visitedShop } from '../../../actions';
+import { useFillerItems } from '../../../hooks/useFillerItems';
+import { useStoreFireBase } from '../../../hooks/useStoreFirebase';
 
 const ShopView = () => {
-  let shopWrapper = useRef(null);
+  const shopWrapper = useRef(null);
+  const imgWrapper = useRef(null);
   const [collection, setCollection] = useState('skis');
+  const visitShop = useSelector((state) => state.visitedShop);
   const dispatch = useDispatch();
-  const [items, setItems] = useState([]);
 
+  const items = useStoreFireBase(collection);
+  // const imgWidth = imgWrapper.current?.offsetWidth;
+  // const fillerItems = useFillerItems(shopWrapper, imgWrapper, items);
+
+  const handleIfShopIsVisited = (item) => {
+    dispatch(visitedShop(item));
+  };
   useEffect(() => {
-    console.log(shopWrapper.offsetWidth);
-
-    const skisCollections = firestore.collection(collection);
-    const documentsCollection = (doc) => {
-      return { id: doc.id, ...doc.data() };
-    };
-    const subscribe = skisCollections.onSnapshot((snapshot) => {
-      const dataFromCollection = snapshot.docs.map(documentsCollection);
-      setItems(dataFromCollection);
-      dispatch(getShopCollection(dataFromCollection));
-    });
-    return () => subscribe;
-  }, [collection]);
-
+    handleIfShopIsVisited(visitShop);
+  }, []);
   return (
     <div className={styles.page_wrapper}>
       <div className={styles.category_wrapper}>
@@ -39,20 +36,24 @@ const ShopView = () => {
           GOOGLES
         </button>
       </div>
-      <div className={styles.shop_wrapper} ref={(el) => (shopWrapper = el)}>
+      <div className={styles.shop_wrapper} ref={shopWrapper}>
         {items.map((item) => (
-          <div className={styles.wrapper} key={item.title}>
+          <div className={styles.wrapper} key={item.title} ref={imgWrapper}>
             <img src={item.image} alt="3" />
             <div className={styles.description_wrapper}>
               <h2>{item.title}</h2>
               <p>Price: {item.price}$</p>
               <Link
                 className={styles.redirect_button}
-                to={`/shop/${item.id}`}
+                to={{ pathname: `/shop/${item.id}` }}
                 onClick={() => {
                   dispatch(addItem(item));
                 }}
               >
+                {/* {fillerItems &&
+                  fillerItems.map((filleritem) => (
+                    <div style={{ width: `${imgWidth}px`, height: '1px' }} key={filleritem} />
+                  ))} */}
                 See more
               </Link>
             </div>

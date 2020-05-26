@@ -1,17 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import DetailedItem from '../../DetailedItem/DetailedItem';
 import styles from './DetailPage.module.scss';
 
-const DetailPage = ({ match }) => {
+const DetailPage = ({ match, location }) => {
   const [item, setItem] = useState();
   const collection = useSelector((state) => state.collection);
-  useEffect(() => {
-    // setID(match.params.id);
+  const shopVisited = useSelector((state) => state.visitedShop);
+
+  const handleItem = () => {
     setItem(...collection.filter((shopItem) => shopItem.id === match.params.id));
+  };
+  useEffect(() => {
+    handleItem();
   }, [collection]);
 
+  if (!shopVisited) {
+    return <Redirect to="/shop" />;
+  }
   return (
     <div className={styles.wrapper}>
       <Link className={styles.returnButton} to="/shop">

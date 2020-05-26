@@ -1,11 +1,20 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import styles from './DetailedItem.module.scss';
+import { addItem } from '../../actions';
 
 const sizes = ['162', '182', '198'];
 
-const DetailedItem = ({ title, price, image }) => {
-  // const radio = useRef(null);
-  // const [size, setSize] = useState('');
+const DetailedItem = ({ title, price, image, redirect }) => {
+  const [length, setLength] = useState();
+  const [item, setItem] = useState({});
+  useDispatch(addItem(title));
+  const handleItemToCart = () => {
+    if (!length) {
+      console.log('select size first');
+    } else return setItem([title, price, image, length]);
+  };
 
   return (
     <div className={styles.item_wrapper}>
@@ -17,13 +26,20 @@ const DetailedItem = ({ title, price, image }) => {
         <p>Price: {price} $</p>
         <div className={styles.sizeSelection_wrapper}>
           <form>
-            {sizes.map((item) => (
-              <>
-                <input type="radio" id={`${item}`} name="selector" key={item} />
-                <label htmlFor={`${item}`}>{item}</label>
-              </>
+            {sizes.map((size) => (
+              <span key={size}>
+                <input type="radio" id={`${size}`} name="selector" value={size} />
+                <label htmlFor={`${size}`} onClick={() => setLength(size)}>
+                  {size}
+                </label>
+              </span>
             ))}
-            <button type="submit">ADD TO CART</button>
+            <button
+              type="button"
+              onClick={() => handleItemToCart({ title }, { price }, { image }, length)}
+            >
+              ADD TO CART
+            </button>
           </form>
         </div>
       </div>
