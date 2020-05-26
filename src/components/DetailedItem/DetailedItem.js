@@ -4,9 +4,9 @@ import { useDispatch } from 'react-redux';
 import styles from './DetailedItem.module.scss';
 import { addItem } from '../../actions';
 
-const sizes = ['162', '182', '198'];
+// const sizes = ['162', '182', '198'];
 
-const DetailedItem = ({ title, price, image, id }) => {
+const DetailedItem = ({ title, price, image, id, sizes }) => {
   const [length, setLength] = useState();
   const dispatch = useDispatch();
   // useDispatch(addItem(title));
@@ -28,14 +28,15 @@ const DetailedItem = ({ title, price, image, id }) => {
         <p>Price: {price} $</p>
         <div className={styles.sizeSelection_wrapper}>
           <form>
-            {sizes.map((size) => (
-              <span key={size}>
-                <input type="radio" id={`${size}`} name="selector" value={size} />
-                <label htmlFor={`${size}`} onClick={() => setLength(size)}>
-                  {size}
-                </label>
-              </span>
-            ))}
+            {sizes &&
+              sizes.map((size) => (
+                <span key={size}>
+                  <input type="radio" id={`${size}`} name="selector" value={size} />
+                  <label htmlFor={`${size}`} onClick={() => setLength(size)}>
+                    {size}
+                  </label>
+                </span>
+              ))}
             <button type="button" onClick={() => handleItemToCart(title, price, image, length)}>
               ADD TO CART
             </button>
@@ -46,9 +47,17 @@ const DetailedItem = ({ title, price, image, id }) => {
   );
 };
 DetailedItem.propTypes = {
-  title: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  image: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  price: PropTypes.number,
+  image: PropTypes.string,
+  id: PropTypes.string,
+  sizes: PropTypes.arrayOf(PropTypes.number),
+};
+DetailedItem.defaultProps = {
+  title: 'Cream skis',
+  price: 299,
+  image: '',
+  id: '',
+  sizes: [],
 };
 export default DetailedItem;

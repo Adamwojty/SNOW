@@ -30,7 +30,7 @@ const DetailPage = ({ match }) => {
   );
 };
 DetailPage.propTypes = {
-  match: PropTypes.string.isRequired,
+  match: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default DetailPage;
