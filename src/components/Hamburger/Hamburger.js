@@ -60,6 +60,7 @@ const locations = [
 
 const Hamburger = ({ state, handleMenu, changeHeaderColor }) => {
   const [disabled, setDisabled] = useState(false);
+  // REFS
   let menu = useRef(null);
   let revealMenu = useRef(null);
   let revealMenuBackground = useRef(null);
@@ -73,14 +74,14 @@ const Hamburger = ({ state, handleMenu, changeHeaderColor }) => {
   let burgerline1 = useRef(null);
   let burgerline2 = useRef(null);
   let burgerline3 = useRef(null);
+
   const handleDisableMenu = () => {
     setDisabled(!disabled);
     setTimeout(() => {
       setDisabled(false);
     }, 1200);
   };
-
-  useEffect(() => {
+  const handleMenuAnimations = () => {
     handleDisableMenu();
     if (state.clicked === false) {
       displayClose(menu);
@@ -99,6 +100,10 @@ const Hamburger = ({ state, handleMenu, changeHeaderColor }) => {
       staggerText(line1, line2, line3);
       changeHeaderColor();
     }
+  };
+
+  useEffect(() => {
+    handleMenuAnimations();
   }, [state]);
 
   const handleLocation = (location) => {
@@ -125,6 +130,11 @@ const Hamburger = ({ state, handleMenu, changeHeaderColor }) => {
   };
 
   const handleCityReturn = () => {
+    gsap.to(descriptionHeader, {
+      innerHTML: 'We make high-quality skis',
+      color: 'white',
+      duration: 0.5,
+    });
     gsap.to(description, {
       innerHTML: `that are progressive in their construction as well as in their use in freeride,
       freestyle and all-mountain skiing. Some of the best athletes in the world inform our
@@ -132,11 +142,6 @@ const Hamburger = ({ state, handleMenu, changeHeaderColor }) => {
       color: 'white',
       duration: 0.1,
       fontSize: '0.8rem',
-    });
-    gsap.to(descriptionHeader, {
-      innerHTML: 'We make high-quality skis',
-      color: 'white',
-      duration: 0.5,
     });
     gsap.to(locationBackground, {
       duration: 0,

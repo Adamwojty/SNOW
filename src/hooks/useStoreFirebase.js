@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getShopCollection } from '../actions';
-import firestore from '../firebase';
+import firestore from '../firebase/firebase';
 
 export const useStoreFireBase = (collection) => {
   const [items, setItems] = useState([]);

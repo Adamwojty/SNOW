@@ -14,11 +14,11 @@ const Header = ({ history }) => {
   });
   let logo = useRef(null);
 
-  useEffect(() => {
+  const handleMenuClicked = () => {
     history.listen(() => {
       setState({ clicked: false, menuName: 'Menu' });
     });
-  });
+  };
 
   const handleMenu = () => {
     if (state.initial === false) {
@@ -49,6 +49,9 @@ const Header = ({ history }) => {
       changeLogoOpen(logo);
     }
   };
+  useEffect(() => {
+    handleMenuClicked();
+  });
 
   return (
     <>
