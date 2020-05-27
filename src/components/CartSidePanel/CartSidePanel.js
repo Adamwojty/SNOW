@@ -2,6 +2,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { removeItem } from '../../actions';
 import styles from './CartSidePanel.module.scss';
 import {
@@ -14,9 +15,10 @@ const CartSidePanel = ({ cartState, cartItems }) => {
   const [cartPrice, setCartPrice] = useState(0);
   const dispatch = useDispatch();
   const handleMenuAnimations = () => {
-    if (cartItems.length < 1) {
-      handelCartSidePanelClosenAnimation(Wrapper1);
-    } else if (cartState.clicked === false) {
+    // if (cartItems.length < 1) {
+    //   handelCartSidePanelClosenAnimation(Wrapper1);
+    // }
+    if (cartState.clicked === false) {
       handelCartSidePanelClosenAnimation(Wrapper1);
     } else if (
       cartState.clicked === true ||
@@ -43,24 +45,25 @@ const CartSidePanel = ({ cartState, cartItems }) => {
       <div className={styles.Wrapper} ref={(el) => (Wrapper1 = el)}>
         <h2>Your Cart:</h2>
         <p>Cart total: {cartPrice} $</p>
-        {cartItems &&
-          cartItems.map((item) => (
-            <div className={styles.itemContainer} key={item.id}>
-              <img src={item.image} alt="" />
-              <div className={styles.itemDescription}>
-                <h3>{item.title}</h3>
-                <h4>{item.price}$</h4>
-                <p>Size: {item.size}</p>
-                <button type="button" onClick={() => handleRemoveItem(item.id)}>
-                  X
-                </button>
-              </div>
-            </div>
-          ))}
-
         <button className={styles.buy_button} type="button">
           Buy now
         </button>
+        <div className={styles.itemsContainer}>
+          {cartItems &&
+            cartItems.map((item) => (
+              <div className={styles.itemContainer} key={item.id}>
+                <img src={item.image} alt="" />
+                <div className={styles.itemDescription}>
+                  <h3>{item.title}</h3>
+                  <h4>{item.price}$</h4>
+                  <p>Size: {item.size}</p>
+                  <button type="button" onClick={() => handleRemoveItem(item.id)}>
+                    X
+                  </button>
+                </div>
+              </div>
+            ))}
+        </div>
       </div>
     </>
   );

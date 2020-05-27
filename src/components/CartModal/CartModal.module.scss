@@ -7,6 +7,9 @@
   width: 40px;
   height: 40px;
   z-index: 999999999;
+  @media (max-width: $mobile) {
+    right: 150px;
+  }
   button {
     cursor: pointer;
     background-color: transparent;

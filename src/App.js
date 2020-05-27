@@ -10,6 +10,7 @@ import styles from './App.module.scss';
 import Footer from './components/Footer/Footer';
 import ScrollToTop from './ScrollToTop';
 import CartModal from './components/CartModal/CartModal';
+import CheckoutView from './components/Views/CheckoutView/CheckoutView';
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
                     <Route exact path="/about" component={AboutView} />
                     <Route exact path="/news" component={NewsView} />
                     <Route exact path="/shop/:id" component={DetailPage} />
+                    <Route exact path="/checkout" component={CheckoutView} />
                   </Switch>
                 </div>
               </div>

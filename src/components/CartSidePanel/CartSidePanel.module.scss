@@ -14,55 +14,95 @@
   flex-direction: column;
   opacity: 1;
   transform: translateX(1000px);
-
+  @media (max-width: $mobile) {
+    width: 100%;
+    left: 0;
+    right: 0;
+    padding: 50px 0 0 0;
+  }
   h2 {
     margin-bottom: 0;
-  }
-
-  .itemContainer {
-    margin-bottom: 20px;
-    padding: 20px;
-    height: 200px;
-    width: 90%;
-    display: flex;
-    border: 1px solid $light-black;
-
-    img {
-      width: 150px;
-      height: 200px;
+    @media (max-width: $mobile) {
+      display: none;
     }
-    .itemDescription {
-      justify-content: center;
-      position: relative;
+  }
+  p {
+    @media (max-width: $mobile) {
+      margin: 50px 0 0 0;
+      text-align: center;
+    }
+  }
+  .itemsContainer {
+    overflow-y: scroll;
+    height: 72vh;
+    @media (max-width: $mobile) {
+      border-top: 1px solid $menu-blue;
       width: 100%;
-      margin-left: 20px;
+    }
+
+    .itemContainer {
+      margin-bottom: 20px;
+      padding: 20px;
+      height: 200px;
+      width: 90%;
       display: flex;
-      flex-direction: column;
-      h3 {
-        margin: 0 0 10px 0;
-        text-transform: uppercase;
-      }
-      h4 {
-        margin: 0;
-      }
-      p {
-        margin: 0;
-        font-weight: $bold;
-      }
-      button {
-        position: absolute;
-        top: 0;
-        right: 0;
-        background-color: transparent;
+      border: 1px solid $light-black;
+      @media (max-width: $mobile) {
+        margin: 0 auto;
+        flex-direction: column;
+        width: 200px;
         border: none;
-        cursor: pointer;
-        font-weight: $bold;
-        font-size: $LTextFont;
+        height: 300px;
+      }
+
+      img {
+        width: 150px;
+        height: 200px;
+        @media (max-width: $mobile) {
+          margin: 0 auto;
+          width: 100%;
+        }
+      }
+      .itemDescription {
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+
+        h3 {
+          margin: 0 0 10px 0;
+          text-transform: uppercase;
+        }
+        h4 {
+          margin: 0;
+        }
+        p {
+          margin: 0;
+          font-weight: $bold;
+          text-align: left;
+        }
+        button {
+          margin-bottom: 50px;
+          position: absolute;
+          top: 0;
+          right: 0;
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          font-weight: $bold;
+          font-size: $LTextFont;
+          @media (max-width: $mobile) {
+            top: -200px;
+            left: 0;
+          }
+        }
       }
     }
   }
   .buy_button {
-    margin-top: 20px;
+    margin: 20px 0;
     cursor: pointer;
     width: 50%;
     background-color: $black;
@@ -70,5 +110,13 @@
     padding: 10px 25px;
     border: none;
     font-weight: $bold;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      background-color: $white;
+      color: $black;
+    }
+    @media (max-width: $mobile) {
+      margin: 20px auto;
+    }
   }
 }

@@ -10,12 +10,13 @@
 .wrapper {
   display: flex;
   flex-direction: row;
-  margin-bottom: 200px;
+  margin: 100px 0 100px 0;
   @media (max-width: $desktop) {
     margin-bottom: 250px;
   }
   @media (max-width: $tablet) {
     flex-direction: column;
+    margin: 100px 0 100px 0;
   }
   @media (max-width: $mobile) {
     margin-bottom: 50px;
