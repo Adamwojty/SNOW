@@ -1,27 +1,17 @@
 /* eslint-disable no-return-assign */
 import React, { useRef, useEffect } from 'react';
-import gsap from 'gsap';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { removeItem } from '../../actions';
 import styles from './CartSidePanel.module.scss';
-import img from '../../img/guy.jpg';
+import {
+  handelCartSidePanelOpenAnimation,
+  handelCartSidePanelClosenAnimation,
+} from '../../animations';
 
-const CartSidePanel = ({ cartState }) => {
+const CartSidePanel = ({ cartState, cartItems }) => {
   let Wrapper1 = useRef(null);
-
-  const handelCartSidePanelOpenAnimation = (node1) => {
-    gsap.to(node1, {
-      duration: 1,
-      x: 0,
-      opacity: 1,
-    });
-  };
-  const handelCartSidePanelClosenAnimation = (node1) => {
-    gsap.to(node1, {
-      duration: 1,
-      x: 1000,
-      opacity: 1,
-    });
-  };
+  const dispatch = useDispatch();
   const handleMenuAnimations = () => {
     if (cartState.clicked === false) {
       handelCartSidePanelClosenAnimation(Wrapper1);
@@ -32,6 +22,9 @@ const CartSidePanel = ({ cartState }) => {
       handelCartSidePanelOpenAnimation(Wrapper1);
     }
   };
+  const handleRemoveItem = (id) => {
+    dispatch(removeItem(id));
+  };
 
   useEffect(() => {
     handleMenuAnimations();
@@ -41,15 +34,21 @@ const CartSidePanel = ({ cartState }) => {
       <div className={styles.Wrapper} ref={(el) => (Wrapper1 = el)}>
         <h2>Your Cart:</h2>
         <p>Cart total: 999 $</p>
-        <div className={styles.itemContainer}>
-          <img src={img} alt="" />
-          <div className={styles.itemDescription}>
-            <h3>Red Skis</h3>
-            <h4>299$</h4>
-            <p>Size: 162</p>
-            <button type="button">X</button>
-          </div>
-        </div>
+        {cartItems &&
+          cartItems.map((item) => (
+            <div className={styles.itemContainer} key={item.id}>
+              <img src={item.image} alt="" />
+              <div className={styles.itemDescription}>
+                <h3>{item.title}</h3>
+                <h4>{item.price}$</h4>
+                <p>Size: {item.size}</p>
+                <button type="button" onClick={() => handleRemoveItem(item.id)}>
+                  X
+                </button>
+              </div>
+            </div>
+          ))}
+
         <button className={styles.buy_button} type="button">
           Buy now
         </button>
@@ -59,5 +58,6 @@ const CartSidePanel = ({ cartState }) => {
 };
 CartSidePanel.propTypes = {
   cartState: PropTypes.objectOf(PropTypes.any).isRequired,
+  cartItems: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 export default CartSidePanel;

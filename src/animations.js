@@ -144,3 +144,20 @@ export const sloganReveal = (node1) => {
     opacity: 0,
   });
 };
+
+// Cart Animations
+
+export const handelCartSidePanelOpenAnimation = (node1) => {
+  gsap.to(node1, {
+    duration: 1,
+    x: 0,
+    opacity: 1,
+  });
+};
+export const handelCartSidePanelClosenAnimation = (node1) => {
+  gsap.to(node1, {
+    duration: 1,
+    x: 1000,
+    opacity: 1,
+  });
+};

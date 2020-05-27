@@ -13,7 +13,6 @@ const Header = ({ history }) => {
     menuName: 'Menu',
   });
   let logo = useRef(null);
-  console.log(logo, 'logo');
 
   const handleMenuClicked = () => {
     history.listen(() => {

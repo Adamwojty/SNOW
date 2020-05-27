@@ -8,7 +8,7 @@ import { addItem } from '../../actions';
 
 // const sizes = ['162', '182', '198'];
 
-const DetailedItem = ({ title, price, image, id, sizes }) => {
+const DetailedItem = ({ title, price, image, sizes }) => {
   const [length, setLength] = useState();
   const dispatch = useDispatch();
   // useDispatch(addItem(title));
@@ -16,7 +16,7 @@ const DetailedItem = ({ title, price, image, id, sizes }) => {
     if (!length) {
       console.log('select size first');
     } else {
-      dispatch(addItem(titleOfItem, priceOfItem, imageOfItem, lengthOfItem, id));
+      dispatch(addItem(titleOfItem, priceOfItem, imageOfItem, lengthOfItem));
     }
   };
 

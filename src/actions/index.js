@@ -1,9 +1,10 @@
-export const addItem = (itemType, price, image, size, id) => {
+export const addItem = (itemType, price, image, size) => {
+  const getId = () => `_${Math.random().toString(36).substr(2, 9)}`;
   return {
     type: 'ADD_ITEM',
     payload: {
       itemType,
-      id,
+      id: getId(),
       price,
       image,
       size,
