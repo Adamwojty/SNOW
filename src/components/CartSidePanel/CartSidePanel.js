@@ -15,9 +15,9 @@ const CartSidePanel = ({ cartState, cartItems }) => {
   const [cartPrice, setCartPrice] = useState(0);
   const dispatch = useDispatch();
   const handleMenuAnimations = () => {
-    // if (cartItems.length < 1) {
-    //   handelCartSidePanelClosenAnimation(Wrapper1);
-    // }
+    if (cartItems.length < 1) {
+      handelCartSidePanelClosenAnimation(Wrapper1);
+    }
     if (cartState.clicked === false) {
       handelCartSidePanelClosenAnimation(Wrapper1);
     } else if (
@@ -45,9 +45,11 @@ const CartSidePanel = ({ cartState, cartItems }) => {
       <div className={styles.Wrapper} ref={(el) => (Wrapper1 = el)}>
         <h2>Your Cart:</h2>
         <p>Cart total: {cartPrice} $</p>
-        <button className={styles.buy_button} type="button">
-          Buy now
-        </button>
+        <Link to="/checkout">
+          <button className={styles.buy_button} type="button">
+            Buy now
+          </button>
+        </Link>
         <div className={styles.itemsContainer}>
           {cartItems &&
             cartItems.map((item) => (

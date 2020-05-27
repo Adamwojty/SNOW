@@ -32,14 +32,14 @@ const CartModal = () => {
   };
   return (
     <>
-      {/* {cartItems.length > 0 && cartItems.length && ( */}
-      <div className={styles.Wrapper}>
-        <button type="button" onClick={() => handleCart()}>
-          <img src={Cart} alt="cart" />
-          <p>{cartItems.length}</p>
-        </button>
-      </div>
-      {/* )} */}
+      {cartItems.length > 0 && cartItems.length && (
+        <div className={styles.Wrapper}>
+          <button type="button" onClick={() => handleCart()}>
+            <img src={Cart} alt="cart" />
+            <p>{cartItems.length}</p>
+          </button>
+        </div>
+      )}
       <CartSidePanel cartState={cartState} cartItems={cartItems} />
     </>
   );
