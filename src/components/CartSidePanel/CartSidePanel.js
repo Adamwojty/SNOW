@@ -1,5 +1,5 @@
 /* eslint-disable no-return-assign */
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { removeItem } from '../../actions';
@@ -11,9 +11,12 @@ import {
 
 const CartSidePanel = ({ cartState, cartItems }) => {
   let Wrapper1 = useRef(null);
+  const [cartPrice, setCartPrice] = useState(0);
   const dispatch = useDispatch();
   const handleMenuAnimations = () => {
-    if (cartState.clicked === false) {
+    if (cartItems.length < 1) {
+      handelCartSidePanelClosenAnimation(Wrapper1);
+    } else if (cartState.clicked === false) {
       handelCartSidePanelClosenAnimation(Wrapper1);
     } else if (
       cartState.clicked === true ||
@@ -25,15 +28,21 @@ const CartSidePanel = ({ cartState, cartItems }) => {
   const handleRemoveItem = (id) => {
     dispatch(removeItem(id));
   };
+  const handleCartPrice = () => {
+    const cartValue = [];
+    cartItems.map((item) => cartValue.push(item.price));
+    setCartPrice(cartValue.reduce((a, b) => a + b, 0));
+  };
 
   useEffect(() => {
     handleMenuAnimations();
+    handleCartPrice();
   });
   return (
     <>
       <div className={styles.Wrapper} ref={(el) => (Wrapper1 = el)}>
         <h2>Your Cart:</h2>
-        <p>Cart total: 999 $</p>
+        <p>Cart total: {cartPrice} $</p>
         {cartItems &&
           cartItems.map((item) => (
             <div className={styles.itemContainer} key={item.id}>
@@ -58,6 +67,6 @@ const CartSidePanel = ({ cartState, cartItems }) => {
 };
 CartSidePanel.propTypes = {
   cartState: PropTypes.objectOf(PropTypes.any).isRequired,
-  cartItems: PropTypes.objectOf(PropTypes.any).isRequired,
+  cartItems: PropTypes.arrayOf(PropTypes.any).isRequired,
 };
 export default CartSidePanel;
