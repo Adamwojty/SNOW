@@ -46,7 +46,11 @@ const CartSidePanel = ({ cartState, cartItems }) => {
         <h2>Your Cart:</h2>
         <p>Cart total: {cartPrice} $</p>
         <Link to="/checkout">
-          <button className={styles.buy_button} type="button">
+          <button
+            className={styles.buy_button}
+            type="button"
+            onClick={() => handelCartSidePanelClosenAnimation(Wrapper1)}
+          >
             Buy now
           </button>
         </Link>

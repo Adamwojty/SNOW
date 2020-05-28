@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import styles from './FormItem.module.scss';
@@ -12,10 +13,10 @@ const SignupSchema = Yup.object().shape({
   adress3: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!'),
 });
 
-const FormItem = () => {
+const FormItem = ({ cartPrice }) => {
   return (
     <div className={styles.Wrapper}>
-      <h2>Cart total: 929$</h2>
+      <h2>Cart total: {cartPrice}$</h2>
       <div className={styles.formWrapper}>
         <Formik
           initialValues={{ email: '', password: '' }}
@@ -103,5 +104,8 @@ const FormItem = () => {
       </div>
     </div>
   );
+};
+FormItem.propTypes = {
+  cartPrice: PropTypes.number.isRequired,
 };
 export default FormItem;

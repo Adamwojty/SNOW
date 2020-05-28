@@ -1,0 +1,21 @@
+@import '../../../constants/constants.module';
+.Wrapper {
+  display: flex;
+  flex-direction: column;
+  .cartWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    li {
+      font-size: $MTextFont;
+      display: flex;
+      border: 1px solid $black;
+      padding: 0 10px;
+      margin: 0 20px 20px 0;
+      p {
+        margin-right: 10px;
+      }
+    }
+  }
+}
