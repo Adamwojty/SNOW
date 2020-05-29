@@ -32,3 +32,9 @@ export const visitedShop = (visitShop) => {
     payload: visitShop,
   };
 };
+export const visitHomePage = (visitHome) => {
+  return {
+    type: 'VISITED_HOMEPAGE',
+    payload: visitHome,
+  };
+};

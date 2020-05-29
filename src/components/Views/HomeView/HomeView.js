@@ -1,5 +1,7 @@
 import React, { useRef, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { visitHomePage } from '../../../actions';
 import styles from './HomeView.module.scss';
 import img2 from '../../../img/img2.jpg';
 import img3 from '../../../img/shop_landning.jpg';
@@ -8,10 +10,18 @@ import { staggerPhotoReveal, sloganReveal } from '../../../animations';
 const HomeView = () => {
   let slogan = useRef(null);
   let imgOne = useRef(null);
+  const dispatch = useDispatch();
+  const visitedHomePage = useSelector((state) => state.visitedMainPage);
 
+  const handleVisitedPage = () => {
+    if (!visitedHomePage) {
+      sloganReveal(slogan);
+      staggerPhotoReveal(imgOne);
+      dispatch(visitHomePage(true));
+    }
+  };
   useEffect(() => {
-    sloganReveal(slogan);
-    staggerPhotoReveal(imgOne);
+    handleVisitedPage();
   });
 
   return (
