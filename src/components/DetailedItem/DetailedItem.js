@@ -55,7 +55,7 @@ DetailedItem.propTypes = {
   title: PropTypes.string,
   price: PropTypes.number,
   image: PropTypes.string,
-  sizes: PropTypes.arrayOf(PropTypes.number),
+  sizes: PropTypes.arrayOf(PropTypes.any),
 };
 DetailedItem.defaultProps = {
   title: 'Cream skis',

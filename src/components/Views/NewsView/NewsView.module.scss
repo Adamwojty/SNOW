@@ -1,0 +1,44 @@
+@import '../../../constants/constants.module';
+
+.Wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  .newsWrapper {
+    width: 400px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    img {
+      height: 300px;
+    }
+    .newsDescription {
+      padding-left: 20px;
+      border-left: 2px solid $black;
+
+      h2 {
+        margin-bottom: 0px;
+      }
+
+      h3 {
+        font-size: $STextFont;
+        font-weight: $regular;
+        margin: 0;
+      }
+      button {
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+        font-weight: $bold;
+        border-bottom: 1px solid $black;
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+          border-bottom: 2px solid $menu-blue;
+          color: $menu-blue;
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}
