@@ -17,13 +17,9 @@ const CartSidePanel = ({ cartState, cartItems }) => {
   const handleMenuAnimations = () => {
     if (cartItems.length < 1) {
       handelCartSidePanelClosenAnimation(Wrapper1);
-    }
-    if (cartState.clicked === false) {
+    } else if (cartState.clicked === false) {
       handelCartSidePanelClosenAnimation(Wrapper1);
-    } else if (
-      cartState.clicked === true ||
-      (cartState.clicked === true && cartState.initial === null)
-    ) {
+    } else if (cartState.clicked === true && cartState.initial === null) {
       handelCartSidePanelOpenAnimation(Wrapper1);
     }
   };

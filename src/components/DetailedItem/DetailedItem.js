@@ -6,15 +6,17 @@ import { useDispatch } from 'react-redux';
 import styles from './DetailedItem.module.scss';
 import { addItem } from '../../actions';
 
-// const sizes = ['162', '182', '198'];
-
 const DetailedItem = ({ title, price, image, sizes }) => {
   const [length, setLength] = useState();
+  const [error, setError] = useState(false);
   const dispatch = useDispatch();
   // useDispatch(addItem(title));
   const handleItemToCart = (titleOfItem, priceOfItem, imageOfItem, lengthOfItem) => {
     if (!length) {
-      console.log('select size first');
+      setError(true);
+      setTimeout(() => {
+        setError(false);
+      }, 2000);
     } else {
       dispatch(addItem(titleOfItem, priceOfItem, imageOfItem, lengthOfItem));
     }
@@ -42,6 +44,7 @@ const DetailedItem = ({ title, price, image, sizes }) => {
             <button type="button" onClick={() => handleItemToCart(title, price, image, length)}>
               ADD TO CART
             </button>
+            {error && <div className={styles.error}>SELECT SIZE FIRST</div>}
           </form>
         </div>
       </div>
