@@ -1,0 +1,80 @@
+@import '../../../constants/constants.module';
+.Wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  font-size: $MTextFont;
+  h2 {
+    text-align: center;
+  }
+
+  .sectionOneWrapper {
+    display: flex;
+    margin: 50px 0;
+    @media (max-width: $tablet) {
+      flex-direction: column;
+      margin: 25px 0;
+    }
+    .textWrapper {
+      padding: 0px 20px;
+      width: 50%;
+      @media (max-width: $tablet) {
+        margin: 0 auto;
+        width: 80%;
+      }
+    }
+    h3 {
+      @media (max-width: $tablet) {
+        text-align: center;
+      }
+    }
+
+    p {
+      margin-top: 0;
+      line-height: 28px;
+      @media (max-width: $tablet) {
+        line-height: 15px;
+        font-size: $STextFont;
+      }
+    }
+    .imgWrapper {
+      width: 50%;
+      overflow: hidden;
+      @media (max-width: $tablet) {
+        width: 80%;
+        margin: 0 auto;
+      }
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .paragraphWrapper {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    a {
+      margin: 0 auto;
+    }
+    button {
+      margin-top: 25px;
+      cursor: pointer;
+      padding: 10px 32px;
+      border: none;
+      background-color: $black;
+      color: $white;
+      font-weight: $bold;
+      transition: 0.3s ease-in-out;
+      &:hover {
+        color: $black;
+        background-color: $white;
+      }
+    }
+    p {
+      @media (max-width: $tablet) {
+        font-size: $STextFont;
+      }
+    }
+  }
+}
