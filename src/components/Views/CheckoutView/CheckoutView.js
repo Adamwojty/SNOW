@@ -25,7 +25,7 @@ const CheckoutView = () => {
     <div className={styles.Wrapper}>
       <ul className={styles.cartWrapper}>
         {cart.map((item) => (
-          <li>
+          <li key={item.id}>
             <p>{item.title}</p>
             <p>{item.price}$</p>
           </li>

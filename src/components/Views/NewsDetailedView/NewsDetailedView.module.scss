@@ -1,1 +1,48 @@
 @import '../../../constants/constants.module';
+
+.Wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  img {
+    margin: 0 auto;
+    @media (max-width: $desktop) {
+      width: 80%;
+      margin-top: 0;
+    }
+  }
+  h2 {
+    font-size: $MHeader;
+    text-align: center;
+    margin-bottom: 0;
+  }
+  h3 {
+    font-size: $MTextFont;
+    letter-spacing: 2px;
+    font-weight: $regular;
+    margin: 0;
+    @media (max-width: $mobile) {
+      font-size: $STextFont;
+    }
+  }
+  button {
+    cursor: pointer;
+    position: fixed;
+    top: 120px;
+    font-weight: $bold;
+    color: $white;
+    background-color: $black;
+    padding: 10px 24px;
+    border: none;
+    transition: 0.3s ease-in-out;
+    margin-bottom: 50px;
+    &:hover {
+      color: $black;
+      background-color: $white;
+    }
+    @media (max-width: $desktop) {
+      position: relative;
+      top: 0;
+    }
+  }
+}

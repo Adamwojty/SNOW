@@ -14,12 +14,13 @@ const CartSidePanel = ({ cartState, cartItems }) => {
   let Wrapper1 = useRef(null);
   const [cartPrice, setCartPrice] = useState(0);
   const dispatch = useDispatch();
+
   const handleMenuAnimations = () => {
     if (cartItems.length < 1) {
       handelCartSidePanelClosenAnimation(Wrapper1);
     } else if (cartState.clicked === false) {
       handelCartSidePanelClosenAnimation(Wrapper1);
-    } else if (cartState.clicked === true && cartState.initial === null) {
+    } else if (cartState.clicked === true || cartState.initial === null) {
       handelCartSidePanelOpenAnimation(Wrapper1);
     }
   };

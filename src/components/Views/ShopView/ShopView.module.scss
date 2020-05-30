@@ -47,6 +47,12 @@
   img {
     height: 500px;
     width: 400px;
+    @media (max-width: $mobile) {
+      width: 300px;
+    }
+  }
+  @media (max-width: $mobile) {
+    width: 300px;
   }
 
   .description_wrapper {

@@ -9,8 +9,10 @@ const NewsView = () => {
   return (
     <main className={styles.Wrapper}>
       {news.map((item) => (
-        <section className={styles.newsWrapper}>
-          <img src={item.image} alt="" />
+        <section className={styles.newsWrapper} key={item.title}>
+          <Link to={{ pathname: `/news/${item.id}` }}>
+            <img src={item.image} alt="" />
+          </Link>
           <div className={styles.newsDescription}>
             <h2>{item.title}</h2>
             <h3>{item.author}</h3>

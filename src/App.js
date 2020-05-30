@@ -28,8 +28,8 @@ const App = () => {
                     <Route exact path="/" component={HomeView} />
                     <Route exact path="/shop" component={ShopView} />
                     <Route exact path="/about" component={AboutView} />
+                    <Route exact path="/news/:id" component={NewsDetailedView} />
                     <Route exact path="/news" component={NewsView} />
-                    <Route exact path="news/:id" component={NewsDetailedView} />
                     <Route exact path="/shop/:id" component={DetailPage} />
                     <Route exact path="/checkout" component={CheckoutView} />
                   </Switch>
