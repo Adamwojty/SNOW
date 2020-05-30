@@ -1,5 +1,6 @@
 {
-  "name": "shop",
+  "homepage": "http://Adamwojty.github.io/SNOW",
+  "name": "SNOW",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -19,6 +20,8 @@
     "yup": "^0.29.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -40,14 +43,15 @@
     ]
   },
   "devDependencies": {
-    "node-sass": "^4.14.1",
-    "prettier": "^2.0.5",
-    "redux-devtools": "^3.5.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^2.5.0"
+    "eslint-plugin-react-hooks": "^2.5.0",
+    "gh-pages": "^3.0.0",
+    "node-sass": "^4.14.1",
+    "prettier": "^2.0.5",
+    "redux-devtools": "^3.5.0"
   }
 }
