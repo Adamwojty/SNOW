@@ -39,6 +39,9 @@ const Footer = () => {
       <aside>
         <p>SNOW. 2020. All Rigths Reserved. Terms. Privacy.</p>
         <p>Coded by A.W.</p>
+        <p className={styles.info}>
+          Text and images from <a href="https://factionskis.com/">Faction Website.</a>
+        </p>
       </aside>
     </footer>
   );

@@ -91,6 +91,7 @@
 .shop_section {
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 50px;
   @media (max-width: $tablet) {
     flex-direction: column;
   }
@@ -111,7 +112,10 @@
     @media (max-width: $mobile) {
       padding: 10px;
     }
-    h2 {
+    header {
+      font-size: $MHeader;
+      font-weight: $bold;
+      height: 50px;
       @media (max-width: $mobile) {
         font-size: $LTextFont;
       }
@@ -149,6 +153,57 @@
     }
     img {
       width: 100%;
+    }
+  }
+}
+.news_section {
+  display: flex;
+  overflow: hidden;
+  margin-top: 50px;
+  @media (max-width: $tablet) {
+    width: 80%;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+  img {
+    width: 60%;
+    @media (max-width: $tablet) {
+      width: 100%;
+    }
+  }
+  div {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 40px;
+    @media (max-width: $tablet) {
+      padding: 0;
+    }
+
+    header {
+      font-size: $MHeader;
+      font-weight: $bold;
+      height: 150px;
+      @media (max-width: $tablet) {
+        height: 100px;
+      }
+    }
+    a {
+      width: 180px;
+      button {
+        cursor: pointer;
+        background-color: $black;
+        color: $white;
+        border: none;
+        font-weight: $bold;
+        padding: 15px 25px;
+        transition: 0.3s ease-in-out;
+        &:hover {
+          background-color: $white;
+          color: $black;
+        }
+      }
     }
   }
 }

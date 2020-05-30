@@ -4,7 +4,6 @@
 /* eslint-disable react/require-default-props */
 import React, { useEffect, useRef, useState } from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import gsap from 'gsap';
 import styles from './Hamburger.module.scss';
 import {
   displayReveal,
@@ -19,6 +18,10 @@ import {
   rotateHamburgerLine3,
   rotatebackHamburgerLine,
   showHamburgerLine2,
+  handleCityReturn,
+  handleHover,
+  handleHoverExit,
+  handleLocation,
 } from '../../animations';
 import chamonixImg from '../../img/chamonix.jpg';
 import hakubaImg from '../../img/hakuba.jpg';
@@ -106,66 +109,6 @@ const Hamburger = ({ state, handleMenu, changeHeaderColor }) => {
     handleMenuAnimations();
   }, [state]);
 
-  const handleLocation = (location) => {
-    gsap.to(locationBackground, {
-      duration: 0,
-      background: `url(${location.image}) `,
-    });
-    gsap.to(locationBackground, {
-      duration: 0.4,
-      opacity: 1,
-      ease: 'power3.inOut',
-    });
-    gsap.to(description, {
-      innerHTML: location.description,
-      color: 'black',
-      duration: 0.1,
-      fontSize: '0.8rem',
-    });
-    gsap.to(descriptionHeader, {
-      innerHTML: location.name,
-      color: 'black',
-      duration: 0.5,
-    });
-  };
-
-  const handleCityReturn = () => {
-    gsap.to(descriptionHeader, {
-      innerHTML: 'We make high-quality skis',
-      color: 'white',
-      duration: 0.5,
-    });
-    gsap.to(description, {
-      innerHTML: `that are progressive in their construction as well as in their use in freeride,
-      freestyle and all-mountain skiing. Some of the best athletes in the world inform our
-      product journey. We capture their stories to inspire fans with exciting content.`,
-      color: 'white',
-      duration: 0.1,
-      fontSize: '0.8rem',
-    });
-    gsap.to(locationBackground, {
-      duration: 0,
-      background: ``,
-    });
-  };
-
-  const handleHover = (e) => {
-    gsap.to(e.target, {
-      duration: 0.3,
-      y: 3,
-      skewX: 4,
-      ease: 'power3.inOut',
-    });
-  };
-  const handleHoverExit = (e) => {
-    gsap.to(e.target, {
-      duration: 0.3,
-      y: -3,
-      skewX: 0,
-      ease: 'power3.inOut',
-    });
-  };
-
   return (
     <>
       <div className={styles.menu}>
@@ -237,8 +180,12 @@ const Hamburger = ({ state, handleMenu, changeHeaderColor }) => {
             {locations.map((el) => (
               <span
                 key={el.name}
-                onMouseEnter={() => handleLocation(el)}
-                onMouseOut={() => handleCityReturn()}
+                onMouseEnter={() =>
+                  handleLocation(el, locationBackground, description, descriptionHeader)
+                }
+                onMouseOut={() =>
+                  handleCityReturn(descriptionHeader, description, locationBackground)
+                }
               >
                 {el.name}
               </span>

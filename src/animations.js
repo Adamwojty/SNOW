@@ -161,3 +161,65 @@ export const handelCartSidePanelClosenAnimation = (node1) => {
     opacity: 1,
   });
 };
+
+// Hamburger BG Animations
+
+export const handleLocation = (location, locationBackground, description, descriptionHeader) => {
+  gsap.to(locationBackground, {
+    duration: 0,
+    background: `url(${location.image}) `,
+  });
+  gsap.to(locationBackground, {
+    duration: 0.4,
+    opacity: 1,
+    ease: 'power3.inOut',
+  });
+  gsap.to(description, {
+    innerHTML: location.description,
+    color: 'black',
+    duration: 0.1,
+    fontSize: '0.8rem',
+  });
+  gsap.to(descriptionHeader, {
+    innerHTML: location.name,
+    color: 'black',
+    duration: 0.5,
+  });
+};
+
+export const handleCityReturn = (descriptionHeader, description, locationBackground) => {
+  gsap.to(descriptionHeader, {
+    innerHTML: 'We make high-quality skis',
+    color: 'white',
+    duration: 0.5,
+  });
+  gsap.to(description, {
+    innerHTML: `that are progressive in their construction as well as in their use in freeride,
+    freestyle and all-mountain skiing. Some of the best athletes in the world inform our
+    product journey. We capture their stories to inspire fans with exciting content.`,
+    color: 'white',
+    duration: 0.1,
+    fontSize: '0.8rem',
+  });
+  gsap.to(locationBackground, {
+    duration: 0,
+    background: ``,
+  });
+};
+
+export const handleHover = (e) => {
+  gsap.to(e.target, {
+    duration: 0.3,
+    y: 3,
+    skewX: 4,
+    ease: 'power3.inOut',
+  });
+};
+export const handleHoverExit = (e) => {
+  gsap.to(e.target, {
+    duration: 0.3,
+    y: -3,
+    skewX: 0,
+    ease: 'power3.inOut',
+  });
+};

@@ -5,6 +5,7 @@ import { visitHomePage } from '../../../actions';
 import styles from './HomeView.module.scss';
 import img2 from '../../../img/img2.jpg';
 import img3 from '../../../img/shop_landning.jpg';
+import img4 from '../../../img/about2.jpg';
 import { staggerPhotoReveal, sloganReveal } from '../../../animations';
 
 const HomeView = () => {
@@ -42,7 +43,7 @@ const HomeView = () => {
 
       <section className={styles.shop_section}>
         <div className={styles.shop_info}>
-          <h2>SPRING SALE.</h2>
+          <header>SPRING SALE.</header>
           <p>UP TO 30% OFF YOUR FAVOURITE MODELS.</p>
           <Link to="/shop">
             <button type="button">SHOP NOW</button>
@@ -50,6 +51,15 @@ const HomeView = () => {
         </div>
         <div className={styles.img3}>
           <img src={img3} alt="ski gear" />
+        </div>
+      </section>
+      <section className={styles.news_section}>
+        <img src={img4} alt="guy" />
+        <div>
+          <header>CHECK OUT OUR NEWS</header>
+          <Link to="/news">
+            <button type="button">BROWSE NEWS</button>
+          </Link>
         </div>
       </section>
     </main>

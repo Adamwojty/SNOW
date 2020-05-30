@@ -134,8 +134,8 @@
           }
           p {
             margin: 0 auto;
-            font-size: $MTextFont;
-            font-weight: $regular;
+            font-size: $LTextFont;
+            font-weight: $bold;
             @media (max-width: $desktop) {
               font-size: $MTextFont;
             }

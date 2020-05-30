@@ -10,6 +10,7 @@ const NewsDetailedView = ({ match }) => {
   const handleItem = () => {
     setItem(...collection.filter((shopItem) => shopItem.id === match.params.id));
   };
+
   useEffect(() => {
     handleItem();
   }, [collection]);
