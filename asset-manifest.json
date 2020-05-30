@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/SNOW/static/css/main.72ba834d.chunk.css",
+    "main.js": "/SNOW/static/js/main.42bb56d0.chunk.js",
+    "main.js.map": "/SNOW/static/js/main.42bb56d0.chunk.js.map",
+    "runtime-main.js": "/SNOW/static/js/runtime-main.d2b6c9e8.js",
+    "runtime-main.js.map": "/SNOW/static/js/runtime-main.d2b6c9e8.js.map",
+    "static/js/2.f3003ee1.chunk.js": "/SNOW/static/js/2.f3003ee1.chunk.js",
+    "static/js/2.f3003ee1.chunk.js.map": "/SNOW/static/js/2.f3003ee1.chunk.js.map",
+    "index.html": "/SNOW/index.html",
+    "precache-manifest.ed1a6e605b5bff41dca232b51f125449.js": "/SNOW/precache-manifest.ed1a6e605b5bff41dca232b51f125449.js",
+    "service-worker.js": "/SNOW/service-worker.js",
+    "static/css/main.72ba834d.chunk.css.map": "/SNOW/static/css/main.72ba834d.chunk.css.map",
+    "static/js/2.f3003ee1.chunk.js.LICENSE.txt": "/SNOW/static/js/2.f3003ee1.chunk.js.LICENSE.txt",
+    "static/media/about1.jpg": "/SNOW/static/media/about1.014e5b64.jpg",
+    "static/media/about2.jpg": "/SNOW/static/media/about2.d79c5f43.jpg",
+    "static/media/cart.svg": "/SNOW/static/media/cart.80759de9.svg",
+    "static/media/chamonix.jpg": "/SNOW/static/media/chamonix.b66eba3c.jpg",
+    "static/media/hakuba.jpg": "/SNOW/static/media/hakuba.98c75ae2.jpg",
+    "static/media/img2.jpg": "/SNOW/static/media/img2.d2f70b8b.jpg",
+    "static/media/jacksonhole.jpg": "/SNOW/static/media/jacksonhole.bea1176b.jpg",
+    "static/media/laax.jpg": "/SNOW/static/media/laax.9a8f49e1.jpg",
+    "static/media/shop_landning.jpg": "/SNOW/static/media/shop_landning.1ea583bc.jpg",
+    "static/media/verbier.jpg": "/SNOW/static/media/verbier.6b805b16.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d2b6c9e8.js",
+    "static/js/2.f3003ee1.chunk.js",
+    "static/css/main.72ba834d.chunk.css",
+    "static/js/main.42bb56d0.chunk.js"
+  ]
+}
