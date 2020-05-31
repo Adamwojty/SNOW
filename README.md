@@ -25,7 +25,7 @@
 
 - React
 - React-Redux
-- Hooks
+- React Hooks
 - React Router
 - Firebase
 - CSS Modules
