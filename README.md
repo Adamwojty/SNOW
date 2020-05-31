@@ -28,6 +28,7 @@
 - Hooks
 - React Router
 - Firebase
+- CSS Modules
 - SCSS
 
 ## Screenshots 📺
