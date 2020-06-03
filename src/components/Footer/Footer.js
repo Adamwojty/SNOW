@@ -1,40 +1,37 @@
 import React from 'react';
 import styles from './Footer.module.scss';
 
+const data = [
+  { title: 'SHOP', items: ['SKIS', 'POLES', 'GOOGLES', 'SKI SIZE GUIDE'] },
+  {
+    title: 'INGORMATION',
+    items: ['ABOUT US', 'NEWS', 'INVEST', 'SPONSORSHIP', 'JOBS', 'INTERNSHIPS'],
+  },
+  {
+    title: 'LEGALS',
+    items: [
+      'SHIPPING & DUTIES',
+      'REFUNDS & RETURNS',
+      'TERMS & CONDITIONS',
+      'PRIVACY POLICY',
+      'WARRANTY',
+    ],
+  },
+  { title: 'SOCIALS', items: ['FACEBOOK', 'INSTAGRAM', 'YOUTUBE'] },
+];
+
 const Footer = () => {
   return (
     <footer>
       <div className={styles.linkWrapper}>
-        <div className={styles.shop}>
-          <h3>SHOP</h3>
-          <p>SKIS</p>
-          <p>POLES</p>
-          <p>POLES SIZE GUIDE</p>
-          <p>SKI SIZE GUIDE</p>
-        </div>
-        <div className={styles.info}>
-          <h3>INFORMATIONS</h3>
-          <p>ABOUT US</p>
-          <p>NEWS</p>
-          <p>INVEST</p>
-          <p>SPONSORSHIP</p>
-          <p>JOBS</p>
-          <p>INTERNSHIPS</p>
-        </div>
-        <div className={styles.legals}>
-          <h3>LEGALS</h3>
-          <p>SHIPPING & DUTIES</p>
-          <p>REFUNDS & RETURNS</p>
-          <p>TERMS & CONDITIONS</p>
-          <p>PRIVACY POLICY</p>
-          <p>WARRANTY</p>
-        </div>
-        <div className={styles.socials}>
-          <h3>SOCIALS</h3>
-          <p>FACEBOOK</p>
-          <p>INSTAGRAM</p>
-          <p>YOUTUBE</p>
-        </div>
+        {data.map((item) => (
+          <div>
+            <h3>{item.title}</h3>
+            {item.items.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
+        ))}
       </div>
       <aside>
         <p>SNOW. 2020. All Rigths Reserved. Terms. Privacy.</p>

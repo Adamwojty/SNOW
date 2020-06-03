@@ -10,6 +10,7 @@ const DetailedItem = ({ title, price, image, sizes }) => {
   const [length, setLength] = useState();
   const [error, setError] = useState(false);
   const dispatch = useDispatch();
+
   const handleItemToCart = (titleOfItem, priceOfItem, imageOfItem, lengthOfItem) => {
     if (!length) {
       setError(true);

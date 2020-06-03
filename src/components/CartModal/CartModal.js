@@ -32,7 +32,7 @@ const CartModal = () => {
   };
   return (
     <>
-      {cartItems.length > 0 && cartItems.length && (
+      {cartItems.length > 0 && (
         <div className={styles.Wrapper}>
           <button type="button" onClick={() => handleCart()}>
             <img src={Cart} alt="cart" />
