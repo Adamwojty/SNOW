@@ -25,9 +25,10 @@
 
 - React
 - React-Redux
-- Hooks
+- React Hooks
 - React Router
 - Firebase
+- CSS Modules
 - SCSS
 
 ## Screenshots 📺
@@ -54,7 +55,6 @@
 | --------------- | ---------------------- | --- |
 | `npm run start` | Open local server      |     |
 | `npm run build` | Create optimized build |     |
-| `npm run test`  | Run tests              |     |
 
 ## Live 📍
 
