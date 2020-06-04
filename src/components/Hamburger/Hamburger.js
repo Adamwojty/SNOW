@@ -104,7 +104,6 @@ const Hamburger = ({ state, handleMenu, changeHeaderColor }) => {
       changeHeaderColor();
     }
   };
-
   useEffect(() => {
     handleMenuAnimations();
   }, [state]);

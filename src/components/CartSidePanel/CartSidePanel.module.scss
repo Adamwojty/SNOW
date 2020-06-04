@@ -101,22 +101,28 @@
       }
     }
   }
-  .buy_button {
-    margin: 20px 0;
-    cursor: pointer;
-    width: 50%;
-    background-color: $black;
-    color: $white;
-    padding: 10px 25px;
-    border: none;
-    font-weight: $bold;
-    transition: 0.3s ease-in-out;
-    &:hover {
-      background-color: $white;
-      color: $black;
-    }
+  a {
     @media (max-width: $mobile) {
       margin: 20px auto;
+      width: 250px;
+    }
+    .buy_button {
+      margin: 20px 0;
+      cursor: pointer;
+      width: 50%;
+      background-color: $black;
+      color: $white;
+      padding: 10px 25px;
+      border: none;
+      font-weight: $bold;
+      transition: 0.3s ease-in-out;
+      &:hover {
+        background-color: $white;
+        color: $black;
+      }
+      @media (max-width: $mobile) {
+        width: 100%;
+      }
     }
   }
 }
