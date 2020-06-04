@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0f27b0513d307e77cc97fd8ced8e8791",
+    "revision": "f13a9f1dade21f7d5175548066eb32e0",
     "url": "/SNOW/index.html"
   },
   {
-    "revision": "a70a566af0c8f30f67f4",
-    "url": "/SNOW/static/css/main.72ba834d.chunk.css"
+    "revision": "23a82c0da57f9e7f7a1f",
+    "url": "/SNOW/static/css/main.756cc9e0.chunk.css"
   },
   {
-    "revision": "3d3d7f1a2746aac69b33",
-    "url": "/SNOW/static/js/2.02862d4a.chunk.js"
+    "revision": "621f3871f16191f3a65a",
+    "url": "/SNOW/static/js/2.970beb8e.chunk.js"
   },
   {
     "revision": "1d9b6afc326945718d0699fb1a471db4",
-    "url": "/SNOW/static/js/2.02862d4a.chunk.js.LICENSE.txt"
+    "url": "/SNOW/static/js/2.970beb8e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a70a566af0c8f30f67f4",
-    "url": "/SNOW/static/js/main.b11020e0.chunk.js"
+    "revision": "23a82c0da57f9e7f7a1f",
+    "url": "/SNOW/static/js/main.daccd510.chunk.js"
   },
   {
     "revision": "5a329873d22b08c053be",
@@ -32,8 +32,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/SNOW/static/media/about2.d79c5f43.jpg"
   },
   {
-    "revision": "80759de916cc70f388de3542007c8fa0",
-    "url": "/SNOW/static/media/cart.80759de9.svg"
+    "revision": "983f7066763aea64ad1e58ea08a28da6",
+    "url": "/SNOW/static/media/cart.983f7066.svg"
   },
   {
     "revision": "b66eba3c582fa756c155824ed7496a83",
