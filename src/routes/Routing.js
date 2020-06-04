@@ -11,7 +11,7 @@ import routes from './routes';
 
 const Routing = () => (
   <Switch>
-    <Route component={HomeView} />
+    <Route exact path="/" component={HomeView} />
     <Route exact path={routes.SHOP} component={ShopView} />
     <Route exact path={routes.ABOUT} component={AboutView} />
     <Route exact path={routes.DETAILEDNEWS} component={NewsDetailedView} />
