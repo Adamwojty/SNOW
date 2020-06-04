@@ -9,6 +9,7 @@ import { addItem } from '../../actions';
 const DetailedItem = ({ title, price, image, sizes }) => {
   const [length, setLength] = useState();
   const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
   const dispatch = useDispatch();
 
   const handleItemToCart = (titleOfItem, priceOfItem, imageOfItem, lengthOfItem) => {
@@ -18,7 +19,11 @@ const DetailedItem = ({ title, price, image, sizes }) => {
         setError(false);
       }, 2000);
     } else {
+      setSuccess(true);
       dispatch(addItem(titleOfItem, priceOfItem, imageOfItem, lengthOfItem));
+      setTimeout(() => {
+        setSuccess(false);
+      }, 2000);
     }
   };
 
@@ -44,6 +49,7 @@ const DetailedItem = ({ title, price, image, sizes }) => {
             <button type="button" onClick={() => handleItemToCart(title, price, image, length)}>
               ADD TO CART
             </button>
+            {success && <div className={styles.success}>ITEM ADDED TO CART</div>}
             {error && <div className={styles.error}>SELECT SIZE FIRST</div>}
           </form>
         </div>
@@ -55,7 +61,7 @@ DetailedItem.propTypes = {
   title: PropTypes.string,
   price: PropTypes.number,
   image: PropTypes.string,
-  sizes: PropTypes.arrayOf(PropTypes.any),
+  sizes: PropTypes.arrayOf(PropTypes.number),
 };
 DetailedItem.defaultProps = {
   title: 'Cream skis',

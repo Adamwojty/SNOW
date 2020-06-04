@@ -38,3 +38,8 @@ export const visitHomePage = (visitHome) => {
     payload: visitHome,
   };
 };
+export const clearCart = () => {
+  return {
+    type: 'CLEAR_CART',
+  };
+};

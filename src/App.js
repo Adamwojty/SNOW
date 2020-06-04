@@ -10,7 +10,7 @@ import Routing from './routes/Routing';
 const App = () => {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <ScrollToTop>
           <div>
             <div className={styles.container}>

@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import styles from './FormItem.module.scss';
+import { clearCart } from '../../actions/index';
 
 const SignupSchema = Yup.object().shape({
   firstName: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
@@ -13,16 +15,27 @@ const SignupSchema = Yup.object().shape({
   adress3: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!'),
 });
 
-const FormItem = ({ cartPrice }) => {
+const FormItem = ({ cartPrice, handleUserInfo }) => {
+  const dispatch = useDispatch();
   return (
     <div className={styles.Wrapper}>
       <h2>Cart total: {cartPrice}$</h2>
       <div className={styles.formWrapper}>
         <Formik
-          initialValues={{ email: '', password: '' }}
+          initialValues={{
+            email: '',
+            firstName: '',
+            lastName: '',
+            adress1: '',
+            adress2: '',
+            adress3: '',
+          }}
           validationSchema={SignupSchema}
           onSubmit={(values) => {
-            console.log('THANKS FOR SHOPING', values);
+            handleUserInfo(values);
+            setTimeout(() => {
+              dispatch(clearCart());
+            }, 10000);
           }}
         >
           {({ errors, touched }) => (
@@ -101,5 +114,6 @@ const FormItem = ({ cartPrice }) => {
 };
 FormItem.propTypes = {
   cartPrice: PropTypes.number.isRequired,
+  handleUserInfo: PropTypes.any.isRequired,
 };
 export default FormItem;

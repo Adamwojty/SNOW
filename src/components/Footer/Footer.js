@@ -25,10 +25,10 @@ const Footer = () => {
     <footer>
       <div className={styles.linkWrapper}>
         {data.map((item) => (
-          <div>
+          <div key={item.title}>
             <h3>{item.title}</h3>
             {item.items.map((paragraph) => (
-              <p>{paragraph}</p>
+              <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
         ))}
