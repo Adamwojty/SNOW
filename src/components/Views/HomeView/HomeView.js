@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { visitHomePage } from '../../../actions';
+import { visitHomePage } from '../../../config/redux/actions';
 import styles from './HomeView.module.scss';
 import img2 from '../../../img/img2.jpg';
 import img3 from '../../../img/shop_landning.jpg';

@@ -1,5 +1,3 @@
-/* eslint-disable no-return-assign */
-/* eslint-disable react/prop-types */
 import React, { useState, useEffect, useRef } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import Hamburger from '../Hamburger/Hamburger';

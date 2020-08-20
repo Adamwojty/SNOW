@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styles from './ShopView.module.scss';
-import { visitedShop } from '../../../actions';
+import { visitedShop } from '../../../config/redux/actions';
 import { useStoreFireBase } from '../../../hooks/useStoreFirebase';
 
 const ShopView = () => {

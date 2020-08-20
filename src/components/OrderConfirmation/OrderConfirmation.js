@@ -6,7 +6,7 @@ const OrderConfirmation = ({ userInfo, cartPrice }) => (
     <h2>Thanks for your order, {userInfo.firstName}</h2>
     <p>
       We have sent confirmation and payment information to your adress:
-      <strong>{userInfo.email}</strong>
+      <strong> {userInfo.email}</strong>
     </p>
     <p>
       Your delivery adress is:{' '}
@@ -17,7 +17,7 @@ const OrderConfirmation = ({ userInfo, cartPrice }) => (
     <p>
       Your cart total was: <strong>{cartPrice}$</strong>
     </p>
-    <p>You will be directed shortly...</p>
+    <p>You will be redirected shortly...</p>
   </div>
 );
 OrderConfirmation.propTypes = {

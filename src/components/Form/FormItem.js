@@ -2,18 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup';
 import styles from './FormItem.module.scss';
-import { clearCart } from '../../actions/index';
-
-const SignupSchema = Yup.object().shape({
-  firstName: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
-  lastName: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
-  email: Yup.string().email('Invalid email').required('Email Required'),
-  adress1: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
-  adress2: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
-  adress3: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!'),
-});
+import { clearCart } from '../../config/redux/actions/index';
+import { SignupSchema } from './SingUpSchema';
 
 const FormItem = ({ cartPrice, handleUserInfo }) => {
   const dispatch = useDispatch();
@@ -22,6 +13,8 @@ const FormItem = ({ cartPrice, handleUserInfo }) => {
       <h2>Cart total: {cartPrice}$</h2>
       <div className={styles.formWrapper}>
         <Formik
+          validateOnBlur={false}
+          validateOnChange={false}
           initialValues={{
             email: '',
             firstName: '',

@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import firebase from 'firebase/app';
 import 'firebase/analytics';
 import 'firebase/firestore';
@@ -14,7 +13,6 @@ const firebaseConfig = {
   measurementId: 'G-8PP6TT97EX',
 };
 // Initialize Firebase
-
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 

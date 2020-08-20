@@ -1,9 +1,8 @@
-/* eslint-disable no-return-assign */
 import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { removeItem } from '../../actions';
+import { removeItem } from '../../config/redux/actions';
 import styles from './CartSidePanel.module.scss';
 import {
   handelCartSidePanelOpenAnimation,

@@ -1,8 +1,7 @@
-/* eslint-disable import/prefer-default-export */
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getShopCollection } from '../actions';
-import firestore from '../firebase/firebase';
+import { getShopCollection } from '../config/redux/actions';
+import firestore from '../config/firebase/firebase';
 
 export const useStoreFireBase = (collection) => {
   const [items, setItems] = useState([]);

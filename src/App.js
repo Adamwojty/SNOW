@@ -5,9 +5,9 @@ import styles from './App.module.scss';
 import Footer from './components/Footer/Footer';
 import ScrollToTop from './ScrollToTop';
 import CartModal from './components/CartModal/CartModal';
-import Routing from './routes/Routing';
+import Routing from './config/Routing/Routing';
 
-const App = () => {
+function App() {
   return (
     <>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
@@ -28,6 +28,6 @@ const App = () => {
       </BrowserRouter>
     </>
   );
-};
+}
 
 export default App;

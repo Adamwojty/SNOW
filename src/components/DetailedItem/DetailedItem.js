@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import styles from './DetailedItem.module.scss';
-import { addItem } from '../../actions';
+import { addItem } from '../../config/redux/actions';
 
 const DetailedItem = ({ title, price, image, sizes }) => {
   const [length, setLength] = useState();
